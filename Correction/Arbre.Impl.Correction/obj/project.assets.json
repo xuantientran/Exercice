@@ -34,7 +34,7 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "D:\\Intech\\Cours\\C.Net\\Exercice\\Correction\\Arbre.Impl.Correction\\Arbre.Impl.Correction.csproj",
-      "projectName": "TestUnitaire.Impl",
+      "projectName": "Arbre.Impl",
       "projectPath": "D:\\Intech\\Cours\\C.Net\\Exercice\\Correction\\Arbre.Impl.Correction\\Arbre.Impl.Correction.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
       "outputPath": "D:\\Intech\\Cours\\C.Net\\Exercice\\Correction\\Arbre.Impl.Correction\\obj\\",

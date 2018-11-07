@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Arbre
 {
-	public interface ICity
+	public interface IRubrique
 	{
-		string Name { get; }
-		ICompany AddCompany(string name);
-		ICompany FindCompany(string name);
+		string Id { get; set; }
+		string Libelle { get; set; }
 	}
 }

@@ -29,6 +29,19 @@
       "NUnit.Runners.Net4/2.6.4": {
         "type": "package"
       },
+      "Arbre.Impl/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "Arbre.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Arbre.Impl.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Arbre.Impl.dll": {}
+        }
+      },
       "Arbre.Model/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.6.1",
@@ -37,19 +50,6 @@
         },
         "runtime": {
           "bin/placeholder/Arbre.Model.dll": {}
-        }
-      },
-      "TestUnitaire.Impl/1.0.0": {
-        "type": "project",
-        "framework": ".NETFramework,Version=v4.6.1",
-        "dependencies": {
-          "Arbre.Model": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/TestUnitaire.Impl.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TestUnitaire.Impl.dll": {}
         }
       }
     }
@@ -227,23 +227,23 @@
         "tools/test.conf"
       ]
     },
+    "Arbre.Impl/1.0.0": {
+      "type": "project",
+      "path": "../Correction/Arbre.Impl.Correction/Arbre.Impl.Correction.csproj",
+      "msbuildProject": "../Correction/Arbre.Impl.Correction/Arbre.Impl.Correction.csproj"
+    },
     "Arbre.Model/1.0.0": {
       "type": "project",
       "path": "../Arbre.Model/Arbre.Model.csproj",
       "msbuildProject": "../Arbre.Model/Arbre.Model.csproj"
-    },
-    "TestUnitaire.Impl/1.0.0": {
-      "type": "project",
-      "path": "../Correction/Arbre.Impl.Correction/Arbre.Impl.Correction.csproj",
-      "msbuildProject": "../Correction/Arbre.Impl.Correction/Arbre.Impl.Correction.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.6.1": [
+      "Arbre.Impl >= 1.0.0",
       "FluentAssertions >= 4.19.4",
       "NUnit >= 2.6.4",
-      "NUnit.Runners.Net4 >= 2.6.4",
-      "TestUnitaire.Impl >= 1.0.0"
+      "NUnit.Runners.Net4 >= 2.6.4"
     ]
   },
   "packageFolders": {
