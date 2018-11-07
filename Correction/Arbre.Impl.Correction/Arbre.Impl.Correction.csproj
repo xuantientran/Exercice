@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <AssemblyName>TestUnitaire.Impl</AssemblyName>
+    <RootNamespace>TestUnitaire</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\TestUnitaire.Model\TestUnitaire.Model.csproj" />
+  </ItemGroup>
+
+</Project>
