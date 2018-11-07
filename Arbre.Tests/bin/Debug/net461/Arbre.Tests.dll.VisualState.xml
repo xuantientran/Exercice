@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ShowCheckBoxes="false">
+  <TopNode>[0-1002]D:\Intech\Cours\C.Net\Exercice\Arbre.Tests\bin\Debug\net461\Arbre.Tests.dll</TopNode>
+  <SelectedNode>[0-1002]D:\Intech\Cours\C.Net\Exercice\Arbre.Tests\bin\Debug\net461\Arbre.Tests.dll</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1002]D:\Intech\Cours\C.Net\Exercice\Arbre.Tests\bin\Debug\net461\Arbre.Tests.dll" Expanded="true" />
+    <Node UniqueName="[0-1003]TestUnitaire" Expanded="true" />
+    <Node UniqueName="[0-1004]TestUnitaire.Tests" Expanded="true" />
+    <Node UniqueName="[0-1000]TestUnitaire.Tests.Test" Expanded="true" />
+  </Nodes>
+</VisualState>

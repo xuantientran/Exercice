@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TestUnitaire
 {
-    public class CityFactory
-    {
+	public class CityFactory
+	{
 		public static ICity CreateCity(string name)
 		{
 			throw new NotImplementedException();
