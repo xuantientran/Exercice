@@ -1,5 +1,2 @@
 .gitignore
 .vs/
-obj/
-bin/
-*.cache
