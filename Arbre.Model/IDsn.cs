@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Arbre
 {
-	public interface IRubrique
+	public interface IDsn
 	{
-		string Id { get; set; }
-		string Libelle { get; set; }
+		Dictionary<string, INoeud> NoeudBlocs { get; set; }
+		INoeud NoeudBlocRacine { get; set; }
 	}
 }

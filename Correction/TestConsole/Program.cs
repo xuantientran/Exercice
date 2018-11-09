@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Arbre;
+using System;
 
 namespace TestConsole
 {
@@ -6,7 +7,12 @@ namespace TestConsole
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			Dsn dsn = new Dsn();
+			Utilitaire.ChargerBlocs(dsn);
+			Utilitaire.ParcourirArbre(dsn);
+			//Utilitaire.FusionnerArbre();
+			dsn.EcrireLog("ChargerBlocs.txt");
+			Console.WriteLine("Résultat : ChargerBlocs.txt");
 			Console.ReadKey();
 		}
 	}

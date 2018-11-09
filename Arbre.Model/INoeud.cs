@@ -15,8 +15,5 @@ namespace Arbre
 		string Libelle { get; set; }
 		INoeud Parent { get; set; }
 		List<INoeud> Enfants { get; set; }
-		List<IRubrique> Rubriques { get; set; }
-		INoeud Cloner();
-		void CopierInfo(INoeud noeu);
 	}
 }
