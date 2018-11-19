@@ -10,5 +10,6 @@ namespace Arbre
 	{
 		Dictionary<string, INoeud> NoeudBlocs { get; set; }
 		INoeud NoeudBlocRacine { get; set; }
+		INoeud ObtenirNoeud(string id);
 	}
 }

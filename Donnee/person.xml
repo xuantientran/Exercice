@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPerson xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Person Id="123">
+    <Prenom>Dupond</Prenom>
+    <Nom>Jean</Nom>
+    <Adresses>
+      <Adresse>
+        <Rue>1, rue du petit pont</Rue>
+        <CodePostal>75005</CodePostal>
+        <Ville>Paris</Ville>
+        <Pays>France</Pays>
+      </Adresse>
+      <Adresse>
+        <Rue>2, rue du petit pont</Rue>
+        <CodePostal>75005</CodePostal>
+        <Ville>Paris</Ville>
+        <Pays>France</Pays>
+      </Adresse>
+    </Adresses>
+  </Person>
+  <Person Id="123">
+    <Prenom>TRAN</Prenom>
+    <Nom>Xuan Tien</Nom>
+    <Adresses>
+      <Adresse>
+        <Rue>1, square Gabriel Fauré</Rue>
+        <CodePostal>92160</CodePostal>
+        <Ville>Antony</Ville>
+        <Pays>France</Pays>
+      </Adresse>
+      <Adresse>
+        <Rue>2, square Gabriel Fauré</Rue>
+        <CodePostal>92160</CodePostal>
+        <Ville>Antony</Ville>
+        <Pays>France</Pays>
+      </Adresse>
+    </Adresses>
+  </Person>
+</ArrayOfPerson>

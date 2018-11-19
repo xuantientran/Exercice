@@ -16,6 +16,8 @@ namespace Arbre
 		int _insMin = 0;
 		int _insMax = 1;
 
+		public NoeudBloc() { }
+
 		public NoeudBloc(string id)
 		{
 			_id = id;
@@ -27,7 +29,7 @@ namespace Arbre
 			_id = id;
 			_parent = parent;
 			_niveau = parent.Niveau + 1;
-		_enfants = new List<INoeud>();
+			_enfants = new List<INoeud>();
 			parent.Enfants.Add(this);
 		}
 

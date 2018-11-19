@@ -12,12 +12,16 @@ namespace Arbre.Tests
 	public class Test
 	{
 		[Test]
-		public void T1_companies_can_be_found_by_name()
+		public void VerifierNoeud()
 		{
-			ICity s = CityFactory.CreateCity("Paris");
-			ICompany c1 = s.AddCompany("SNCF");
-			s.FindCompany("SNCF").Should().BeSameAs(c1);
-			s.FindCompany("RATP").Should().BeNull();
+			IDsn dsn = UsineArbre.CreerArbre();
+			UsineArbre.FichiersEgaux().Should().BeTrue();
+			INoeud parent = dsn.ObtenirNoeud("S30.G01.00");
+			parent.Should().NotBeNull();
+			INoeud noeud = dsn.ObtenirNoeud("S40.G01.00");
+			noeud.Should().NotBeNull();
+			noeud.Parent.Should().BeSameAs(parent);
+			noeud.Enfants.Count.Should().Be(41);
 		}
 	}
 }

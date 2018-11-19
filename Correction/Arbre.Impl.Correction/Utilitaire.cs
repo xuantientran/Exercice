@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Arbre
 {
@@ -12,6 +13,10 @@ namespace Arbre
 	{
 		public static bool ChargerBlocs(Dsn dsn)
 		{
+			string dossier = @"..\..\..\..\..\";
+			string fichierEnvoi = dossier + @"Donnee\Envoi.txt";
+			string fichierEnvoiTotaux = dossier + @"Donnee\Envoi Totaux.txt";
+			string fichierArbre = dossier + @"Donnee\DADSU COMPLETE.txt";
 			string exp = @"(.+)\s+\(([0-9]),([0-9]|\*)\)$";
 			//On trouve toujours le parent au sommet de la pile
 			Stack<INoeud> pileParents = new Stack<INoeud>();
@@ -33,7 +38,7 @@ namespace Arbre
 			int niveau = 0;
 			//Traitement de la S10
 			//, Encoding.GetEncoding("iso-8859-1")
-			using (StreamReader lecture = new StreamReader("Envoi.txt"))
+			using (StreamReader lecture = new StreamReader(fichierEnvoi))
 			{
 				while ((ligne = lecture.ReadLine()) != null)
 				{
@@ -121,7 +126,7 @@ namespace Arbre
 			niveauBase = 2;
 			nligne = 0;
 			//Traitement du corps
-			using (StreamReader lecture = new StreamReader("DADSU COMPLETE.txt"))
+			using (StreamReader lecture = new StreamReader(fichierArbre))
 			{
 				while ((ligne = lecture.ReadLine()) != null)
 				{
@@ -200,7 +205,7 @@ namespace Arbre
 			niveauBase = 1;
 			nligne = 0;
 			//Traitement du envoi total
-			using (StreamReader lecture = new StreamReader("Envoi Totaux.txt"))
+			using (StreamReader lecture = new StreamReader(fichierEnvoiTotaux))
 			{
 				while ((ligne = lecture.ReadLine()) != null)
 				{
@@ -276,6 +281,7 @@ namespace Arbre
 					dernierNiveau = niveau;
 				}
 			}
+			ParcourirArbre(dsn);
 			return true;
 		}
 
@@ -316,7 +322,7 @@ namespace Arbre
 		{
 			using (StreamWriter ecriture = new StreamWriter("Arbre.txt", false))
 			{
-			
+
 				string ligne = "S00.G00.00 - Racine (1,1)";
 				ecriture.WriteLine(ligne);
 				using (StreamReader lecture = new StreamReader("Envoi.txt"))
@@ -342,5 +348,6 @@ namespace Arbre
 				}
 			}
 		}
+
 	}
 }

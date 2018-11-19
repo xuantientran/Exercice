@@ -20,6 +20,7 @@ namespace Arbre
 		}
 
 		public Dictionary<string, INoeud> NoeudBlocs { get => _noeuBlocs; set => _noeuBlocs = value; }
+
 		public INoeud NoeudBlocRacine { set => _noeuBlocRacine = value; get => _noeuBlocRacine; }
 
 		public string LibelleBloc(string cle)
@@ -42,5 +43,10 @@ namespace Arbre
 			}
 		}
 
+		public INoeud ObtenirNoeud(string id)
+		{
+			_noeuBlocs.TryGetValue(id, out INoeud noeud);
+			return noeud;
+		}
 	}
 }
