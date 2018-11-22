@@ -14,8 +14,8 @@ namespace Arbre.Tests
 		[Test]
 		public void VerifierNoeud()
 		{
-			IDsn dsn = UsineArbre.CreerArbre();
-			UsineArbre.FichiersEgaux().Should().BeTrue();
+			IDsn dsn = FactoryArbre.CreerArbre();
+			FactoryArbre.FichiersEgaux().Should().BeTrue();
 			INoeud parent = dsn.ObtenirNoeud("S30.G01.00");
 			parent.Should().NotBeNull();
 			INoeud noeud = dsn.ObtenirNoeud("S40.G01.00");

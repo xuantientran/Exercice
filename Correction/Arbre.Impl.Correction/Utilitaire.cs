@@ -13,7 +13,8 @@ namespace Arbre
 	{
 		public static bool ChargerBlocs(Dsn dsn)
 		{
-			string dossier = @"..\..\..\..\..\";
+			string dossier = @"..\..\..\..\";
+			//string dossier = @"..\..\..\..\..\";
 			string fichierEnvoi = dossier + @"Donnee\Envoi.txt";
 			string fichierEnvoiTotaux = dossier + @"Donnee\Envoi Totaux.txt";
 			string fichierArbre = dossier + @"Donnee\DADSU COMPLETE.txt";

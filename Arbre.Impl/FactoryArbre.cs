@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Arbre
 {
-	public class UsineArbre
+	public class FactoryArbre
 	{
 		public static bool FichiersEgaux(string fichierA = @"..\..\..\..\Donnee\Arbre.txt", string fichierB = @"..\..\..\..\Donnee\ArbreResultat.txt")
 		{
@@ -34,8 +34,12 @@ namespace Arbre
 		public static Dsn CreerArbre()
 		{
 			Dsn dsn = new Dsn();
-			Utilitaire.ChargerBlocs(dsn);
-			dsn.EcrireLog(@"..\..\..\..\..\Donnee\ArbreResultat.txt");
+			//On construit l'arbre
+			//En parcourant l'arbre, on joindre l'information au StringBuilder
+			//Lors qu'on finit on écrit StringBuilder sur le fichier ArbreResultat.txt
+			//Il est identique avec le fichier Arbre.txt
+
+			dsn.EcrireLog(@"..\..\..\..\Donnee\ArbreResultat.txt");
 			return dsn;
 		}
 	}

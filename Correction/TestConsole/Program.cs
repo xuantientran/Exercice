@@ -7,7 +7,7 @@ namespace TestConsole
 	{
 		static void Main(string[] args)
 		{
-			Dsn dsn = UsineArbre.CreerArbre();
+			Dsn dsn = FactoryArbre.CreerArbre();
 			Console.ReadKey();
 		}
 	}

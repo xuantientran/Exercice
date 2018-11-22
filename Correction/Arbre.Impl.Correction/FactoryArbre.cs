@@ -7,15 +7,9 @@ using System.Threading.Tasks;
 
 namespace Arbre
 {
-	public class UsineArbre
+	public class FactoryArbre
 	{
-		public static Dsn CreerArbre()
-		{
-			Dsn dsn = new Dsn();
-			return dsn;
-		}
-
-		public static bool FichiersEgaux(string fichierA = @"..\..\..\..\Arbre.txt", string fichierB = @"..\..\..\..\ChargerBlocs.txt")
+		public static bool FichiersEgaux(string fichierA = @"..\..\..\..\Donnee\Arbre.txt", string fichierB = @"..\..\..\..\Donnee\ArbreResultat.txt")
 		{
 			if (!File.Exists(fichierA))
 				return false;
@@ -37,6 +31,12 @@ namespace Arbre
 			return false;
 		}
 
-
+		public static Dsn CreerArbre()
+		{
+			Dsn dsn = new Dsn();
+			Utilitaire.ChargerBlocs(dsn);
+			dsn.EcrireLog(@"..\..\..\..\Donnee\ArbreResultat.txt");
+			return dsn;
+		}
 	}
 }
