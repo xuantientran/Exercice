@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <AssemblyName>ITI.DSNTree.Impl</AssemblyName>
+    <RootNamespace>ITI.DSNTree</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ITI.DSNTree.Model\ITI.DSNTree.Model.csproj" />
+  </ItemGroup>
+
+</Project>
