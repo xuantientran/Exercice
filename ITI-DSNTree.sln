@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITI.DSNTree.Impl", "ITI.DSNTree.Impl\ITI.DSNTree.Impl.csproj", "{1324C456-59E1-4E91-B183-9F4F5FA2CE76}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITI.DSNTree.Model", "ITI.DSNTree.Model\ITI.DSNTree.Model.csproj", "{D6095979-157E-4516-8D2D-9157196381F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITI.DSNTree.Tests", "ITI.DSNTree.Tests\ITI.DSNTree.Tests.csproj", "{16897FCF-CB73-4FA8-95FB-39814192936B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{634A54D1-01F1-4E9B-8813-600541C8319F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example2", "Example2", "{59520D3D-B376-4986-9309-2BF8F4CF384C}"
+	ProjectSection(SolutionItems) = preProject
+		Data\Example2\Chunk1.txt = Data\Example2\Chunk1.txt
+		Data\Example2\Chunk2.txt = Data\Example2\Chunk2.txt
+		Data\Example2\Chunk3.txt = Data\Example2\Chunk3.txt
+		Data\Example2\Result.txt = Data\Example2\Result.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example0", "Example0", "{275103EF-288F-414E-B6F1-07CA310DC4E3}"
+	ProjectSection(SolutionItems) = preProject
+		Data\Example0\TestData.txt = Data\Example0\TestData.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1324C456-59E1-4E91-B183-9F4F5FA2CE76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1324C456-59E1-4E91-B183-9F4F5FA2CE76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1324C456-59E1-4E91-B183-9F4F5FA2CE76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1324C456-59E1-4E91-B183-9F4F5FA2CE76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6095979-157E-4516-8D2D-9157196381F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6095979-157E-4516-8D2D-9157196381F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6095979-157E-4516-8D2D-9157196381F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6095979-157E-4516-8D2D-9157196381F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16897FCF-CB73-4FA8-95FB-39814192936B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16897FCF-CB73-4FA8-95FB-39814192936B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16897FCF-CB73-4FA8-95FB-39814192936B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16897FCF-CB73-4FA8-95FB-39814192936B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{59520D3D-B376-4986-9309-2BF8F4CF384C} = {634A54D1-01F1-4E9B-8813-600541C8319F}
+		{275103EF-288F-414E-B6F1-07CA310DC4E3} = {634A54D1-01F1-4E9B-8813-600541C8319F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {74EAD0AF-7EE3-4416-A05F-836DB9F75B65}
+	EndGlobalSection
+EndGlobal

@@ -3,15 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arbre.Impl.Correction", "Arbre.Impl.Correction\Arbre.Impl.Correction.csproj", "{CB6A4478-A8FF-4F07-ADE3-0BC161400323}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITI.DSNTree.Impl.Correction", "ITI.DSNTree.Impl.Correction\ITI.DSNTree.Impl.Correction.csproj", "{CB6A4478-A8FF-4F07-ADE3-0BC161400323}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arbre.Impl", "..\Arbre.Impl\Arbre.Impl.csproj", "{2B6C590C-5942-498F-A3C6-9EBF7CE0975C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITI.DSNTree.Impl", "..\ITI.DSNTree.Impl\ITI.DSNTree.Impl.csproj", "{2B6C590C-5942-498F-A3C6-9EBF7CE0975C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arbre.Model", "..\Arbre.Model\Arbre.Model.csproj", "{6795EBC0-6E1A-4DB3-B8A5-A5D40B11F2DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITI.DSNTree.Model", "..\ITI.DSNTree.Model\ITI.DSNTree.Model.csproj", "{6795EBC0-6E1A-4DB3-B8A5-A5D40B11F2DA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arbre.Tests", "..\Arbre.Tests\Arbre.Tests.csproj", "{E269BC59-CBC7-4449-B3F8-BF3AB3A7D48B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITI.DSNTree.Tests", "..\ITI.DSNTree.Tests\ITI.DSNTree.Tests.csproj", "{E269BC59-CBC7-4449-B3F8-BF3AB3A7D48B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{20FE7D8E-3D67-40EF-A75B-9D0F4B01ED32}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{BA21B67E-69AC-47E2-970F-C2B504DFAD50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example0", "Example0", "{942C91CB-7F20-4F3C-8F59-1E9668082189}"
+	ProjectSection(SolutionItems) = preProject
+		..\Data\Example0\TestData.txt = ..\Data\Example0\TestData.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example2", "Example2", "{0B152EC3-1A35-45B8-BDF1-226A106A39A1}"
+	ProjectSection(SolutionItems) = preProject
+		..\Data\Example2\Chunk1.txt = ..\Data\Example2\Chunk1.txt
+		..\Data\Example2\Chunk2.txt = ..\Data\Example2\Chunk2.txt
+		..\Data\Example2\Chunk3.txt = ..\Data\Example2\Chunk3.txt
+		..\Data\Example2\Result.txt = ..\Data\Example2\Result.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,13 +48,13 @@ Global
 		{E269BC59-CBC7-4449-B3F8-BF3AB3A7D48B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E269BC59-CBC7-4449-B3F8-BF3AB3A7D48B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E269BC59-CBC7-4449-B3F8-BF3AB3A7D48B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{20FE7D8E-3D67-40EF-A75B-9D0F4B01ED32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20FE7D8E-3D67-40EF-A75B-9D0F4B01ED32}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20FE7D8E-3D67-40EF-A75B-9D0F4B01ED32}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20FE7D8E-3D67-40EF-A75B-9D0F4B01ED32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{942C91CB-7F20-4F3C-8F59-1E9668082189} = {BA21B67E-69AC-47E2-970F-C2B504DFAD50}
+		{0B152EC3-1A35-45B8-BDF1-226A106A39A1} = {BA21B67E-69AC-47E2-970F-C2B504DFAD50}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1DD467C1-600F-49D6-8737-669E4F0CFAE7}

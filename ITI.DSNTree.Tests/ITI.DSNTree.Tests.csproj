@@ -8,6 +8,6 @@
     <PackageReference Include="NUnit.Runners.Net4" Version="2.6.4" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Correction\Arbre.Impl.Correction\Arbre.Impl.Correction.csproj" />
+    <ProjectReference Include="..\Correction\ITI.DSNTree.Impl.Correction\ITI.DSNTree.Impl.Correction.csproj" />
   </ItemGroup>
 </Project>
