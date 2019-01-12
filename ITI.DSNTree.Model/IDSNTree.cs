@@ -8,15 +8,21 @@ namespace ITI.DSNTree
 {
 	public interface IDsnTree
 	{
-        /// <summary>
-        /// Gets the total number of nodes.
-        /// </summary>
-        int Count { get; }
+		/// <summary>
+		/// Gets the total number of nodes.
+		/// </summary>
+		int Count { get; }
 
-		//On a besoin d'une racine pour prendre arbre
+		/// <summary>
+		/// Gets the root of the tree
+		/// </summary>
 		IDSNNode Root { get; }
 
-		//On récupère un noeud par son id en le cherchant dans le dictionnaire
+		/// <summary>
+		/// Get a node by its id
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
 		IDSNNode Find(string id);
 
 	}

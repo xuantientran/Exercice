@@ -9,9 +9,9 @@ namespace ITI.DSNTree
 {
 	public class DSNTreeFactory
 	{
-		public static IDsnTree LoadTree( string path )
+		public static IDsnTree LoadTree(string path)
 		{
-            throw new NotImplementedException();
+			throw new NotImplementedException();
 		}
 	}
 }
