@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITI.DSNTree
 {
-	public interface IDsnTree
+	public interface IDSNTree
 	{
 		/// <summary>
 		/// Gets the total number of nodes.

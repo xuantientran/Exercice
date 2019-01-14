@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net461</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ITI.DSNTree.Impl.Correction\ITI.DSNTree.Impl.Correction.csproj" />
+  </ItemGroup>
+
+</Project>

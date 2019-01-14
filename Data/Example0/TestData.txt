@@ -1,2 +1,9 @@
-S67.G10.09 - Label number 0 (0,1)
-
+S10.G01.00 - Emetteur (1,1)
+	S10.G01.01 - Contacts Emetteur (1,*)
+	S10.G01.05 - Compte rendu d'exploitation (0,1)
+	S20.G01.00 - Déclaration (1,1)
+		S20.G01.05 - Compte rendu d'exploitation (0,1)
+		S20.G05.00 - Déclaration de résultats (0,1)
+		S20.G10.05 - Complément d'identification pour les entreprises du spectacle (0,1)
+		S20.G10.10 - Complément d'identification pour les entreprises de services à la personne (0,1)
+		S30.G01.00 - Identification du Salarié (0,*)

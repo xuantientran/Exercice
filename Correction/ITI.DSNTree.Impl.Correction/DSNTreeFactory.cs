@@ -9,9 +9,10 @@ namespace ITI.DSNTree
 {
 	public class DSNTreeFactory
 	{
-		public static IDsnTree LoadTree( string path )
+		public static IDSNTree LoadTree( string path )
 		{
-			return null;
+			DSNTree tree = new DSNTree(path);
+			return tree;
 		}
 	}
 }

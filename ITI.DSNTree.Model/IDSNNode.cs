@@ -37,7 +37,7 @@ namespace ITI.DSNTree
 		/// Gets the immutable list of children.
 		/// Must never be null, but may be empty.
 		/// </summary>
-		IReadOnlyList<IDSNNode> Children { get; set; }
+		List<IDSNNode> Children { get; }
 
 		/// <summary>
 		/// Must check whether the <see cref="Cardinality"/> is correct regarding the 
