@@ -20,12 +20,12 @@ namespace ITI.DSNTree.Tests
 		[Test]
 		public void T00_loading_simple_test_data()
 		{
-			var tree = DSNTreeFactory.LoadTree(Path.Combine(GetDataDirectory(), "Example0", "TestData.txt"));
+			var tree = DsnTreeFactory.LoadTree(Path.Combine(GetDataDirectory(), "Example0", "TestData.txt"));
 
 			tree.Should().NotBeNull();
 			tree.Count.Should().Be(1);
 			tree.Find("S67.G10.09").Label.Should().Be("Label number 0");
-			tree.Find("S67.G10.09").Cardinality.Should().Be(new DSNCardinality(0, 1));
+			tree.Find("S67.G10.09").Cardinality.Should().Be(new DsnCardinality(0, 1));
 		}
 
 		static void CheckFileEquals(string path1, string path2)

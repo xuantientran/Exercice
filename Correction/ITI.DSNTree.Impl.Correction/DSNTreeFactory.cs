@@ -7,12 +7,29 @@ using System.Threading.Tasks;
 
 namespace ITI.DSNTree
 {
-	public class DSNTreeFactory
+	public class DsnTreeFactory
 	{
-		public static IDSNTree LoadTree( string path )
+		public static IDsnTree LoadTree(string path)
 		{
-			DSNTree tree = new DSNTree(path);
-			return tree;
+			DsnTree dsnTree = new DsnTree(path);
+			return dsnTree;
+		}
+
+		public static IDataTree loadDataTree(string path, string dataPath)
+		{
+			IDsnTree dsnTree = new DsnTree(path);
+			IDataTree dataTree = new DataTree(dsnTree);
+			((DataTree)dataTree).LoadDataTree(dataPath);
+			return dataTree;
+		}
+
+		public static IDsnData LoadDsnData(string path, string dataPath)
+		{
+			IDsnTree dsnTree = new DsnTree(path);
+			IDataTree dataTree = new DataTree(dsnTree);
+			((DataTree)dataTree).LoadDataTree(dataPath);
+			IDsnData dsnData = new DsnData(dataTree);
+			return dsnData;
 		}
 	}
 }

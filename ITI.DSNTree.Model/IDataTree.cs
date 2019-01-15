@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ITI.DSNTree
 {
-	public class DsnTreeFactory
+	public interface IDataTree
 	{
-		public static IDsnTree LoadTree(string path)
-		{
-			throw new NotImplementedException();
-		}
+		IDataBlock Root { set; get; }
+		int Count { get; }
+		IDsnTree DsnTree { get; }
 	}
 }

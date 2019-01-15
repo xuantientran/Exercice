@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace ITI.DSNTree
 {
-	public class DSNNode : IDSNNode
+	public class DsnNode : IDsnNode
 	{
 		string _id;
 		int _level;
-		DSNCardinality _cardinality;
+		DsnCardinality _cardinality;
 		string _label;
-		IDSNNode _parent;
-		List<IDSNNode> _children;
+		IDsnNode _parent;
+		List<IDsnNode> _children;
 
-		public DSNNode(string id, IDSNNode parent, string label, int level, DSNCardinality cardinality)
+		public DsnNode(string id, IDsnNode parent, string label, int level, DsnCardinality cardinality)
 		{
 			_id = id;
 			_parent = parent;
 			_label = label;
 			_level = level;
 			_cardinality = cardinality;
-			_children = new List<IDSNNode>();
+			_children = new List<IDsnNode>();
 			if (_parent != null)
 				_parent.Children.Add(this);
 		}
@@ -31,13 +31,13 @@ namespace ITI.DSNTree
 
 		public int Level => _level;
 
-		public DSNCardinality Cardinality => _cardinality;
+		public DsnCardinality Cardinality => _cardinality;
 
 		public string Label => _label;
 
-		public IDSNNode Parent => _parent;
+		public IDsnNode Parent => _parent;
 
-		public List<IDSNNode> Children { get => _children;}
+		public List<IDsnNode> Children { get => _children;}
 
 		public bool CheckCardinality()
 		{

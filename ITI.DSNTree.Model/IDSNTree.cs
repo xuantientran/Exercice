@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITI.DSNTree
 {
-	public interface IDSNTree
+	public interface IDsnTree
 	{
 		/// <summary>
 		/// Gets the total number of nodes.
@@ -16,14 +16,14 @@ namespace ITI.DSNTree
 		/// <summary>
 		/// Gets the root of the tree
 		/// </summary>
-		IDSNNode Root { get; }
+		IDsnNode Root { get; }
 
 		/// <summary>
 		/// Get a node by its id
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
-		IDSNNode Find(string id);
+		IDsnNode Find(string id);
 
 	}
 }

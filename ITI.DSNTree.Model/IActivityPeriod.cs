@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ITI.DSNTree
 {
-	public class DsnTreeFactory
+	public interface IActivityPeriod
 	{
-		public static IDsnTree LoadTree(string path)
-		{
-			throw new NotImplementedException();
-		}
+		string BeginDate { get; }
+		IDataBlock DataBlock { get; }
 	}
 }

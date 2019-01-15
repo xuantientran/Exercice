@@ -8,32 +8,32 @@ using System.Threading.Tasks;
 
 namespace ITI.DSNTree
 {
-	public class DSNTree : IDSNTree
+	public class DsnTree : IDsnTree
 	{
 		int _count;
-		IDSNNode _root;
-		Dictionary<string, IDSNNode> _dsnNodes;
+		IDsnNode _root;
+		Dictionary<string, IDsnNode> _dsnNodes;
 
-		public DSNTree(string path)
+		public DsnTree(string path)
 		{
 			_count = 0;
 			_root = null;
-			_dsnNodes = new Dictionary<string, IDSNNode>();
-			LoadDSNTree(path);
+			_dsnNodes = new Dictionary<string, IDsnNode>();
+			LoadDsnTree(path);
 		}
 
-		void LoadDSNTree(string path)
+		void LoadDsnTree(string path)
 		{
 			if (!File.Exists(path))
 				throw new FileNotFoundException("File does not exists");
 
 			string exp = @"(.+)\s+\(([0-9]),([0-9]|\*)\)$";
 			//On trouve toujours le parent au sommet de la pile
-			Stack<IDSNNode> parentStack = new Stack<IDSNNode>();
-			IDSNNode current;
-			IDSNNode parent;
+			Stack<IDsnNode> parentStack = new Stack<IDsnNode>();
+			IDsnNode current;
+			IDsnNode parent;
 			//Il faut ajouter la racine artificielement
-			_root = new DSNNode("S00.G00.00", null, "Root", 0, new DSNCardinality(1, 1));
+			_root = new DsnNode("S00.G00.00", null, "Root", 0, new DsnCardinality(1, 1));
 
 			_dsnNodes.Add(_root.Id, _root);
 
@@ -127,7 +127,7 @@ namespace ITI.DSNTree
 							max = int.Parse(m.Groups[3].Value);
 
 						//on crée un noeu et spécise son parent
-						current = new DSNNode(cle, parent, label, level, new DSNCardinality(min, max));
+						current = new DsnNode(cle, parent, label, level, new DsnCardinality(min, max));
 						//On ajoute le noeu dans le dictionaire
 						_dsnNodes.Add(cle, current);
 						_count++;
@@ -137,15 +137,31 @@ namespace ITI.DSNTree
 			}
 		}
 
-		public Dictionary<string, IDSNNode> DsnNodes => _dsnNodes;
+		public HashSet<string> GetPathToNode(string id)
+		{
+			HashSet<string> nodeList = new HashSet<string>();
+			_dsnNodes.TryGetValue(id, out IDsnNode node);
+			if (node == null)
+				return null;
+
+			while (node.Parent != null)
+			{
+				nodeList.Add(node.Id);
+				node = node.Parent;
+			}
+			nodeList.Add(_root.Id);
+			return nodeList;
+		}
+
+		public Dictionary<string, IDsnNode> DsnNodes => _dsnNodes;
 
 		public int Count => _count;
 
-		public IDSNNode Root => _root;
+		public IDsnNode Root => _root;
 
-		public IDSNNode Find(string id)
+		public IDsnNode Find(string id)
 		{
-			_dsnNodes.TryGetValue(id, out IDSNNode node);
+			_dsnNodes.TryGetValue(id, out IDsnNode node);
 			return node;
 		}
 	}

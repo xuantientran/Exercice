@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ITI.DATATree
+namespace ITI.DSNTree
 {
-	public interface ILeaf
+	public interface IDataLeaf
 	{
-		Dictionary<string,string> LeafData { set; get; }
-		IBlock Bloc { set; get; }
+		Dictionary<string,string> Data { set; get; }
+		IDataBlock Block { set; get; }
 	}
 }

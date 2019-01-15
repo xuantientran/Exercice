@@ -10,13 +10,13 @@ namespace TestConsole
 {
 	public class Utilitaire
 	{
-		public static void Traverse(IDSNNode root)
+		public static void Traverse(IDsnNode root)
 		{
 			//, Encoding.GetEncoding("iso-8859-1")
 			using (StreamWriter writer = new StreamWriter("Traverse.txt", false))
 			{
-				IDSNNode current = root;
-				Stack<IDSNNode> stack = new Stack<IDSNNode>();
+				IDsnNode current = root;
+				Stack<IDsnNode> stack = new Stack<IDsnNode>();
 				stack.Push(current);
 				while (stack.Count > 0)
 				{

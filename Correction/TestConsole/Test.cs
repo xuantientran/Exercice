@@ -18,8 +18,13 @@ namespace TestConsole
 
 		public static void TestTree()
 		{
-			var path = Path.Combine(GetDataDirectory(), "Example0", "TestData.txt");
-			IDSNTree tree = DSNTreeFactory.LoadTree(path);
+			var path = Path.Combine(GetDataDirectory(), "Example0", "dsn.txt");
+			IDsnTree dsnTree = DsnTreeFactory.LoadTree(path);
+			var l = ((DsnTree)dsnTree).GetPathToNode("S40.G05.00");
+			foreach (var n in l)
+			{
+				Console.WriteLine(n);
+			}
 			/*
 			foreach (var n in ((DSNTree)tree).DsnNodes)
 				Console.WriteLine(n.Key);
@@ -27,8 +32,22 @@ namespace TestConsole
 			{
 				Console.WriteLine(n.Id);
 			}
-			*/
 			Utilitaire.Traverse(tree.Root);
+			*/
+		}
+
+		public static void TestDsnData()
+		{
+			IDsnData dsnData = DsnTreeFactory.LoadDsnData(Path.Combine(GetDataDirectory(), "Example0", "dsn.txt"), @"D:\Test_workspace.Net\Net4DS\Donnee\DADSU.V01X13.Loic.POMPILI CHARTRON.S60.txt");
+
+			foreach (var e in dsnData.Employees)
+			{
+				Console.WriteLine(e.Key + " " + e.Value.FirstName + " " + e.Value.LastName);
+				foreach (var p in e.Value.ActivityPeriods)
+				{
+					Console.WriteLine(p.BeginDate);
+				}
+			}
 		}
 
 	}
