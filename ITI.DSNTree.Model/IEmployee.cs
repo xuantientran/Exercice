@@ -13,7 +13,7 @@ namespace ITI.DSNTree
 		string FirstName { get; }
 		string Matricule { get; }
 		IDataBlock EmployeeDataBlock { get; }
-		List<IActivityPeriod> ActivityPeriods { get; set; }
-		List<ISpecialPeriod> SpecialPeriods { get; set; }
+		List<IActivityPeriod> ActivityPeriods { get; }
+		List<ISpecialPeriod> SpecialPeriods { get; }
 	}
 }

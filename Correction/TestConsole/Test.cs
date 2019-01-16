@@ -1,4 +1,7 @@
-﻿using ITI.DSNTree;
+﻿using DiffPlex;
+using DiffPlex.DiffBuilder;
+using DiffPlex.DiffBuilder.Model;
+using ITI.DSNTree;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -48,6 +51,10 @@ namespace TestConsole
 				foreach (var p in dsnData.HonorairePayers)
 				{
 					writer.WriteLine(p.Nic);
+					foreach (var h in p.Honoraires)
+					{
+						writer.WriteLine(h.Quality);
+					}
 				}
 				/*
 				foreach (var e in dsnData.Employees)
@@ -65,5 +72,63 @@ namespace TestConsole
 			}
 		}
 
+		public static void TestComparison()
+		{
+			string pathDsnTree = Path.Combine(GetDataDirectory(), "Example0", "dsn.txt");
+			string pathDataTree = Path.Combine(GetDataDirectory(), "Example0", "V01X13.Myriam RENAULD.txt");
+			string pathDataTree2 = Path.Combine(GetDataDirectory(), "Example0", "V01X13.Myriam RENAULD.modified.txt");
+			using (StreamWriter writer = new StreamWriter("TestComparison.txt", false))
+			{
+				IDsnTree dsnTree = DsnTreeFactory.LoadTree(pathDsnTree);
+				IDataTree dataTree = DsnTreeFactory.loadDataTree(dsnTree, pathDataTree);
+				IDataTree dataTree2 = DsnTreeFactory.loadDataTree(dsnTree, pathDataTree2);
+				IDsnData dsnData = new DsnData(dataTree);
+				IDsnData dsnData2 = new DsnData(dataTree2);
+
+				StringBuilder sb = new StringBuilder();
+				var d = new Differ();
+				var builder = new InlineDiffBuilder(d);
+
+				foreach (var e in dsnData.Employees)
+				{
+					if (dsnData2.Employees.ContainsKey(e.Key))
+					{
+						for (var i = 0; i < e.Value.ActivityPeriods.Count; i++)
+						{
+							var a = e.Value.ActivityPeriods[i].ToString();
+							var a2 = dsnData2.Employees[e.Key].ActivityPeriods[i].ToString();
+							writer.Write(a2);
+							/*
+							var result = builder.BuildDiffModel(a2, a);
+							foreach (var line in result.Lines)
+							{
+								switch (line.Type)
+								{
+									case ChangeType.Inserted:
+										sb.Append("+ ");
+										break;
+									case ChangeType.Deleted:
+										sb.Append("- ");
+										break;
+									case ChangeType.Modified:
+										sb.Append("* ");
+										break;
+									case ChangeType.Unchanged:
+										sb.Append("  ");
+										break;
+									default:
+										sb.Append("? ");
+										break;
+								}
+								sb.AppendLine(line.Text);
+							}
+							writer.Write(sb.ToString());
+							*/
+
+						}
+					}
+				}
+			}
+		}
 	}
 }

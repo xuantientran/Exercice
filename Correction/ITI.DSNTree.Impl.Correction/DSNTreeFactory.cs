@@ -15,11 +15,10 @@ namespace ITI.DSNTree
 			return dsnTree;
 		}
 
-		public static IDataTree loadDataTree(string path, string dataPath)
+		public static IDataTree loadDataTree(IDsnTree dsnTree, string path)
 		{
-			IDsnTree dsnTree = new DsnTree(path);
 			IDataTree dataTree = new DataTree(dsnTree);
-			((DataTree)dataTree).LoadDataTree(dataPath);
+			((DataTree)dataTree).LoadDataTree(path);
 			return dataTree;
 		}
 

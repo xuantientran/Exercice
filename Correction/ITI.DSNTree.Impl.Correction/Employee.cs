@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace ITI.DSNTree
 {
-	class Employee : IEmployee
+	public class Employee : IEmployee
 	{
-		const string activityPeriodBlockKey = "S40.G01.00";
-		const string activityPeriodBeginDateKey = "S40.G01.00.001";
+		public const string KeyNir = "S30.G01.00.001";
+		public const string KeyLastName = "S30.G01.00.002";
+		public const string KeyFirstName = "S30.G01.00.003";
+		public const string KeyMatricule = "S30.G01.00.019";
 
-		const string specialPeriodBlockKey = "S60.G05.00";
-		const string specialPeriodBeginDateKey = "S60.G05.00.002";
+		public const string KeyEmployeeBlock = "S30.G01.00";
+		public const string KeySpecialPeriodBlock = "S60.G05.00";
 
 		IDataTree _dataTree;
 		
@@ -25,51 +27,55 @@ namespace ITI.DSNTree
 		List<IActivityPeriod> _activityPeriods;
 		List<ISpecialPeriod> _specialPeriods;
 
-		public Employee(IDataTree dataTree, IDataBlock employeeDataBlock,
-			string nir, string lastName, string firstName, string matricule)
+		public Employee(IDataTree dataTree, IDataBlock employeeDataBlock)
 		{
 			_dataTree = dataTree;
 			_employeeDataBlock = employeeDataBlock;
-			_nir = nir;
-			_lastName = lastName;
-			_firstName = firstName;
-			_matricule = matricule;
 			_activityPeriods = new List<IActivityPeriod>();
 			_specialPeriods = new List<ISpecialPeriod>();
+			LoadEmployee();
 			LoadActivityPeriods();
 			LoadSpecialPeriods();
 		}
 
-		void LoadSpecialPeriods()
+		void LoadEmployee()
 		{
-			ISpecialPeriod specialPeriod;
-			List<IDataBlock> specialPeriodBlocks = ((DataTree)_dataTree).FindBlock(specialPeriodBlockKey, _employeeDataBlock);
-			foreach (var sBlock in specialPeriodBlocks)
-			{
-				sBlock.Leaves.First().Data.TryGetValue(specialPeriodBeginDateKey, out string specialPeriodBeginDate);
-				specialPeriod = new SpecialPeriod(sBlock, specialPeriodBeginDate);
-				_specialPeriods.Add(specialPeriod);
-			}
+			var eData = _employeeDataBlock.Leaves.First().Data;
+			eData.TryGetValue(KeyNir, out _nir);
+			eData.TryGetValue(KeyLastName, out _lastName);
+			eData.TryGetValue(KeyFirstName, out _firstName);
+			eData.TryGetValue(KeyMatricule, out _matricule);
+
 		}
 
 		void LoadActivityPeriods()
 		{
 			IActivityPeriod activityPeriod;
-			List<IDataBlock> activityPeriodBlocks = ((DataTree)_dataTree).FindBlock(activityPeriodBlockKey, _employeeDataBlock);
+			List<IDataBlock> activityPeriodBlocks = ((DataTree)_dataTree).FindBlock(ActivityPeriod.KeyActivityPeriodBlock, _employeeDataBlock);
 			foreach (var pBlock in activityPeriodBlocks)
 			{
-				pBlock.Leaves.First().Data.TryGetValue(activityPeriodBeginDateKey, out string activityPeriodBeginDate);
-				activityPeriod = new ActivityPeriod(pBlock, activityPeriodBeginDate);
+				activityPeriod = new ActivityPeriod(pBlock);
 				_activityPeriods.Add(activityPeriod);
 			}
 		}
 
-		public string Nir { get => _nir; }
-		public string LastName { get => _lastName; }
-		public string FirstName { get => _firstName; }
-		public string Matricule { get => _matricule; }
-		public IDataBlock EmployeeDataBlock { get => _employeeDataBlock; set => _employeeDataBlock = value; }
-		public List<IActivityPeriod> ActivityPeriods { get => _activityPeriods; set => _activityPeriods = value; }
-		public List<ISpecialPeriod> SpecialPeriods { get => _specialPeriods; set => _specialPeriods = value; }
+		void LoadSpecialPeriods()
+		{
+			ISpecialPeriod specialPeriod;
+			List<IDataBlock> specialPeriodBlocks = ((DataTree)_dataTree).FindBlock(KeySpecialPeriodBlock, _employeeDataBlock);
+			foreach (var sBlock in specialPeriodBlocks)
+			{
+				specialPeriod = new SpecialPeriod(sBlock);
+				_specialPeriods.Add(specialPeriod);
+			}
+		}
+
+		public string Nir => _nir;
+		public string LastName => _lastName;
+		public string FirstName => _firstName;
+		public string Matricule => _matricule;
+		public IDataBlock EmployeeDataBlock => _employeeDataBlock;
+		public List<IActivityPeriod> ActivityPeriods => _activityPeriods;
+		public List<ISpecialPeriod> SpecialPeriods => _specialPeriods;
 	}
 }

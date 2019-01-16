@@ -7,8 +7,9 @@ namespace TestConsole
 	{
 		static void Main(string[] args)
 		{
-			Test.TestDsnData();
+			Test.TestComparison();
 			//Test.TestTree();
+			//Utilitaire.Diff();
 			Console.ReadKey();
 		}
 	}

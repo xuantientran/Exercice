@@ -9,7 +9,7 @@ namespace ITI.DSNTree
 	public class Honoraire : IHonoraire
 	{
 		IDataTree _dataTree;
-		IDataBlock _honoraireDataBlock;
+		IDataBlock _honoraireBlock;
 
 		string _quality;
 		string _lastName;
@@ -19,27 +19,31 @@ namespace ITI.DSNTree
 		string _raisonSociale;
 		string _address;
 
-		const string beneficiaryBlockKey		= "S70.G10.00";
-		
-		const string beneficiaryQualityKey	= "S70.G10.00.001";
+		const string beneficiaryQualityKey = "S70.G10.00.001";
 		const string beneficiaryLastNameKey = "S70.G10.00.002.001";
-		const string beneficiaryFirstNameKey= "S70.G10.00.002.002";
-		const string beneficiarySirenKey		= "S70.G10.00.003.001";
-		const string beneficiaryNicKey			= "S70.G10.00.003.002";
+		const string beneficiaryFirstNameKey = "S70.G10.00.002.002";
+		const string beneficiarySirenKey = "S70.G10.00.003.001";
+		const string beneficiaryNicKey = "S70.G10.00.003.002";
 		const string beneficiaryRaisonSocialeKey = "S70.G10.00.003.003";
-		const string beneficiaryAdressKey		= "S70.G10.00.004.006";
+		const string beneficiaryAdressKey = "S70.G10.00.004.006";
 
-		public Honoraire(IDataTree dataTree, IDataBlock honoraireDataBlock, string quality, string lastName, string firstName, string siren, string nic, string raisonSociale, string address)
+		public Honoraire(IDataTree dataTree, IDataBlock honoraireBlock)
 		{
 			_dataTree = dataTree;
-			_honoraireDataBlock = honoraireDataBlock;
-			_quality = quality;
-			_lastName = lastName;
-			_firstName = firstName;
-			_siren = siren;
-			_nic = nic;
-			_raisonSociale = raisonSociale;
-			_address = address;
+			_honoraireBlock = honoraireBlock;
+			LoadHonoraire();
+		}
+
+		void LoadHonoraire()
+		{
+			var hData = _honoraireBlock.Leaves.First().Data;
+			hData.TryGetValue(beneficiaryQualityKey, out _quality);
+			hData.TryGetValue(beneficiaryLastNameKey, out _lastName);
+			hData.TryGetValue(beneficiaryFirstNameKey, out _firstName);
+			hData.TryGetValue(beneficiarySirenKey, out _siren);
+			hData.TryGetValue(beneficiaryNicKey, out _nic);
+			hData.TryGetValue(beneficiaryRaisonSocialeKey, out _raisonSociale);
+			hData.TryGetValue(beneficiaryAdressKey, out _address);
 		}
 
 		public string Quality => _quality;
@@ -49,7 +53,7 @@ namespace ITI.DSNTree
 		public string Nic => _nic;
 		public string RaisonSociale => _raisonSociale;
 		public string Address => _address;
-		public IDataBlock HonoraireDataBlock => _honoraireDataBlock;
+		public IDataBlock HonoraireDataBlock => _honoraireBlock;
 
 	}
 }

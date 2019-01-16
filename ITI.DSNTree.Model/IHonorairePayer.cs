@@ -9,6 +9,7 @@ namespace ITI.DSNTree
 	public interface IHonorairePayer
 	{
 		string Nic { get; }
+		List<IHonoraire> Honoraires { get; }
 		IDataBlock HonorairePayerBlock { get; }
 	}
 }

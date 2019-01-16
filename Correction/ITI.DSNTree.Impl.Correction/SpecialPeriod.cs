@@ -8,14 +8,18 @@ namespace ITI.DSNTree
 {
 	public class SpecialPeriod : ISpecialPeriod
 	{
-		string _beginDate;
-		IDataBlock _specialPeriodDataBlock;
+		const string specialPeriodBeginDateKey = "S60.G05.00.002";
 
-		public SpecialPeriod(IDataBlock specialPeriodDataBlock, string beginDate)
+		IDataBlock _specialPeriodDataBlock;
+		string _beginDate;
+
+		public SpecialPeriod(IDataBlock specialPeriodDataBlock)
 		{
 			_specialPeriodDataBlock = specialPeriodDataBlock;
-			_beginDate = beginDate;
+			LoadSpecialPeriod();
 		}
+
+		void LoadSpecialPeriod() =>_specialPeriodDataBlock.Leaves.First().Data.TryGetValue(specialPeriodBeginDateKey, out _beginDate);
 
 		public string BeginDate => _beginDate;
 		public IDataBlock SpecialPeriodDataBlock => _specialPeriodDataBlock;
