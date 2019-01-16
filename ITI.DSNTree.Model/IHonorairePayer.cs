@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ITI.DSNTree
 {
-	public interface IActivityPeriod
+	public interface IHonorairePayer
 	{
-		string BeginDate { get; }
-		IDataBlock ActivityPeriodDataBlock { get; }
+		string Nic { get; }
+		IDataBlock HonorairePayerBlock { get; }
 	}
 }

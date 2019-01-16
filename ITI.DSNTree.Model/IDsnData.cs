@@ -10,5 +10,6 @@ namespace ITI.DSNTree
 	{
 		IDataTree DataTree { get; }
 		Dictionary<string, IEmployee> Employees { get; }
+		List<IHonorairePayer> HonorairePayers { get; }
 	}
 }

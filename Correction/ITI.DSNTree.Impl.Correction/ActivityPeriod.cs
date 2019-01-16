@@ -9,15 +9,15 @@ namespace ITI.DSNTree
 	public class ActivityPeriod : IActivityPeriod
 	{
 		string _beginDate;
-		IDataBlock _dataBlock;
+		IDataBlock _activityPeriodDataBlock;
 
-		public ActivityPeriod(IDataBlock dataBlock, string beginDate)
+		public ActivityPeriod(IDataBlock activityPeriodDataBlock, string beginDate)
 		{
-			_dataBlock = dataBlock;
+			_activityPeriodDataBlock = activityPeriodDataBlock;
 			_beginDate = beginDate;
 		}
 
 		public string BeginDate => _beginDate;
-		public IDataBlock DataBlock => _dataBlock;
+		public IDataBlock ActivityPeriodDataBlock => _activityPeriodDataBlock;
 	}
 }

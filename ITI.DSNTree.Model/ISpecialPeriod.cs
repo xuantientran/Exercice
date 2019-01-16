@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ITI.DSNTree
 {
-	public interface IActivityPeriod
+	public interface ISpecialPeriod
 	{
 		string BeginDate { get; }
-		IDataBlock ActivityPeriodDataBlock { get; }
+		IDataBlock SpecialPeriodDataBlock { get; }
 	}
 }

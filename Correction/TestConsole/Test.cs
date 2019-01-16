@@ -38,15 +38,30 @@ namespace TestConsole
 
 		public static void TestDsnData()
 		{
-			IDsnData dsnData = DsnTreeFactory.LoadDsnData(Path.Combine(GetDataDirectory(), "Example0", "dsn.txt"), @"D:\Test_workspace.Net\Net4DS\Donnee\DADSU.V01X13.Loic.POMPILI CHARTRON.S60.txt");
-
-			foreach (var e in dsnData.Employees)
+			using (StreamWriter writer = new StreamWriter("TestDsnData.txt", false))
 			{
-				Console.WriteLine(e.Key + " " + e.Value.FirstName + " " + e.Value.LastName);
-				foreach (var p in e.Value.ActivityPeriods)
+
+				//IDsnData dsnData = DsnTreeFactory.LoadDsnData(Path.Combine(GetDataDirectory(), "Example0", "dsn.txt"), @"D:\Test_workspace.Net\Net4DS\Donnee\DADSU.V01X13.Loic.POMPILI CHARTRON.S60.txt");
+				IDsnData dsnData
+					= DsnTreeFactory.LoadDsnData(Path.Combine(GetDataDirectory(), "Example0", "dsn.txt"),
+					Path.Combine(GetDataDirectory(), "Example0", "TestData.txt"));
+				foreach (var p in dsnData.HonorairePayers)
 				{
-					Console.WriteLine(p.BeginDate);
+					writer.WriteLine(p.Nic);
 				}
+				/*
+				foreach (var e in dsnData.Employees)
+				{
+					writer.WriteLine("------------------");
+					writer.WriteLine(e.Key + " " + e.Value.FirstName + " " + e.Value.LastName);
+					writer.WriteLine("-Activity periods-");
+					foreach (var a in e.Value.ActivityPeriods)
+						writer.WriteLine(a.BeginDate);
+					writer.WriteLine("-Special periods-");
+					foreach (var s in e.Value.SpecialPeriods)
+						writer.WriteLine(s.BeginDate);
+				}
+				*/
 			}
 		}
 
