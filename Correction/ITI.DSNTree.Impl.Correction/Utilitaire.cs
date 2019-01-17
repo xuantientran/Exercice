@@ -34,36 +34,38 @@ namespace TestConsole
                 do ordain and establish this constitution
                 for the United States of America";
 
-			var d = new Differ();
-			var builder = new InlineDiffBuilder(d);
-			var result = builder.BuildDiffModel(oldText, newText);
+			var diffBuilder = new InlineDiffBuilder(new Differ());
+			var diff = diffBuilder.BuildDiffModel(oldText, newText);
 
-			foreach (var line in result.Lines)
+			foreach (var line in diff.Lines)
 			{
-				if (line.Type == ChangeType.Inserted)
+				switch (line.Type)
 				{
-					sb.Append("+ ");
-				}
-				else if (line.Type == ChangeType.Deleted)
-				{
-					sb.Append("- ");
-				}
-				else if (line.Type == ChangeType.Modified)
-				{
-					sb.Append("* ");
-				}
-				else if (line.Type == ChangeType.Imaginary)
-				{
-					sb.Append("? ");
-				}
-				else if (line.Type == ChangeType.Unchanged)
-				{
-					sb.Append("  ");
+					case ChangeType.Inserted:
+						Console.ForegroundColor = ConsoleColor.Red;
+						Console.Write("+ ");
+						break;
+					case ChangeType.Deleted:
+						Console.ForegroundColor = ConsoleColor.Green;
+						Console.Write("- ");
+						break;
+					case ChangeType.Modified:
+						Console.ForegroundColor = ConsoleColor.Yellow;
+						Console.Write("*  ");
+						break;
+					default:
+						Console.ForegroundColor = ConsoleColor.White;
+						Console.Write("  ");
+						break;
 				}
 
-				sb.Append(line.Text + "\n");
+				Console.WriteLine(line.Text);
 			}
-			Console.WriteLine(sb.ToString());
+		}
+
+		public static void Diff2()
+		{
+			
 		}
 
 		public static void CompaireActivityPeriod(IDataTree dataTree, IDataBlock activityPeriodDataBlock, IDataBlock activityPeriodDataBlock2)

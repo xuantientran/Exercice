@@ -77,7 +77,8 @@ namespace TestConsole
 			string pathDsnTree = Path.Combine(GetDataDirectory(), "Example0", "dsn.txt");
 			string pathDataTree = Path.Combine(GetDataDirectory(), "Example0", "V01X13.Myriam RENAULD.txt");
 			string pathDataTree2 = Path.Combine(GetDataDirectory(), "Example0", "V01X13.Myriam RENAULD.modified.txt");
-			using (StreamWriter writer = new StreamWriter("TestComparison.txt", false))
+			string pathResult = Path.Combine(GetDataDirectory(), "Example0", "result.txt");
+			using (StreamWriter writer = new StreamWriter(pathResult, false))
 			{
 				IDsnTree dsnTree = DsnTreeFactory.LoadTree(pathDsnTree);
 				IDataTree dataTree = DsnTreeFactory.loadDataTree(dsnTree, pathDataTree);
@@ -97,34 +98,36 @@ namespace TestConsole
 						{
 							var a = e.Value.ActivityPeriods[i].ToString();
 							var a2 = dsnData2.Employees[e.Key].ActivityPeriods[i].ToString();
-							writer.Write(a2);
-							/*
-							var result = builder.BuildDiffModel(a2, a);
-							foreach (var line in result.Lines)
+							var result = builder.BuildDiffModel(a, a2);
+
+							DiffPiece lastDiffPiece = new DiffPiece { Type = ChangeType.Unchanged };
+							result.Lines[-1] = lastDiffPiece;
+							for (int ix = 0; ix < result.Lines.Count; ix++)
 							{
-								switch (line.Type)
+								switch (result.Lines[ix].Type)
 								{
 									case ChangeType.Inserted:
-										sb.Append("+ ");
+										if (lastDiffPiece.Type == ChangeType.Deleted)
+											sb.AppendLine("* " + result.Lines[ix].Text);
+										else
+											sb.AppendLine("+ " + result.Lines[ix].Text);
 										break;
 									case ChangeType.Deleted:
-										sb.Append("- ");
+										sb.AppendLine("- " + result.Lines[ix].Text);
 										break;
 									case ChangeType.Modified:
-										sb.Append("* ");
+										sb.AppendLine("* " + result.Lines[ix].Text);
 										break;
 									case ChangeType.Unchanged:
-										sb.Append("  ");
+										sb.AppendLine("  " + result.Lines[ix].Text);
 										break;
 									default:
-										sb.Append("? ");
+										sb.AppendLine("? " + result.Lines[ix].Text);
 										break;
 								}
-								sb.AppendLine(line.Text);
+								lastDiffPiece = result.Lines[ix];
 							}
 							writer.Write(sb.ToString());
-							*/
-
 						}
 					}
 				}

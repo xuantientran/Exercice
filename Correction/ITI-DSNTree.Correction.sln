@@ -16,6 +16,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example0", "Example0", "{942C91CB-7F20-4F3C-8F59-1E9668082189}"
 	ProjectSection(SolutionItems) = preProject
 		..\Data\Example0\TestData.txt = ..\Data\Example0\TestData.txt
+		..\Data\Example0\TestData2.txt = ..\Data\Example0\TestData2.txt
+		..\Data\Example0\V01X13.Myriam RENAULD.modified.txt = ..\Data\Example0\V01X13.Myriam RENAULD.modified.txt
+		..\Data\Example0\V01X13.Myriam RENAULD.txt = ..\Data\Example0\V01X13.Myriam RENAULD.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example2", "Example2", "{0B152EC3-1A35-45B8-BDF1-226A106A39A1}"
