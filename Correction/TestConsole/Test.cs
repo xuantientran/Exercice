@@ -4,6 +4,7 @@ using DiffPlex.DiffBuilder.Model;
 using ITI.DSNTree;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -74,10 +75,16 @@ namespace TestConsole
 
 		public static void TestComparison()
 		{
+			//string pathDataTree = @"D:\Donnees_VParis\PSBDADSU_VIL.C11_180126_003118_9.026.756_77.327.txt";
+			//string pathDataTree2 = @"D:\Donnees_VParis\PSBDADSU_VIL.C11_180126_003118_9.026.756_77.327.modifie.txt";
 			string pathDsnTree = Path.Combine(GetDataDirectory(), "Example0", "dsn.txt");
 			string pathDataTree = Path.Combine(GetDataDirectory(), "Example0", "V01X13.Myriam RENAULD.txt");
 			string pathDataTree2 = Path.Combine(GetDataDirectory(), "Example0", "V01X13.Myriam RENAULD.modified.txt");
 			string pathResult = Path.Combine(GetDataDirectory(), "Example0", "result.txt");
+
+			Stopwatch muniteur = new Stopwatch();
+			muniteur.Start();
+
 			using (StreamWriter writer = new StreamWriter(pathResult, false))
 			{
 				IDsnTree dsnTree = DsnTreeFactory.LoadTree(pathDsnTree);
@@ -85,53 +92,44 @@ namespace TestConsole
 				IDataTree dataTree2 = DsnTreeFactory.loadDataTree(dsnTree, pathDataTree2);
 				IDsnData dsnData = new DsnData(dataTree);
 				IDsnData dsnData2 = new DsnData(dataTree2);
-
-				StringBuilder sb = new StringBuilder();
-				var d = new Differ();
-				var builder = new InlineDiffBuilder(d);
-
-				foreach (var e in dsnData.Employees)
+				List<DataItem> dataItems = new List<DataItem>();
+				foreach (var employee in dsnData.Employees)
 				{
-					if (dsnData2.Employees.ContainsKey(e.Key))
+					if (dsnData2.Employees.ContainsKey(employee.Key))
 					{
-						for (var i = 0; i < e.Value.ActivityPeriods.Count; i++)
-						{
-							var a = e.Value.ActivityPeriods[i].ToString();
-							var a2 = dsnData2.Employees[e.Key].ActivityPeriods[i].ToString();
-							var result = builder.BuildDiffModel(a, a2);
+						var employee2 = dsnData2.Employees[employee.Key];
+						Comparison.CompareDictionary(employee.Value.EmployeeDataBlock.Leaves.First().Data, employee2.EmployeeDataBlock.Leaves.First().Data, dataItems);
 
-							DiffPiece lastDiffPiece = new DiffPiece { Type = ChangeType.Unchanged };
-							result.Lines[-1] = lastDiffPiece;
-							for (int ix = 0; ix < result.Lines.Count; ix++)
-							{
-								switch (result.Lines[ix].Type)
-								{
-									case ChangeType.Inserted:
-										if (lastDiffPiece.Type == ChangeType.Deleted)
-											sb.AppendLine("* " + result.Lines[ix].Text);
-										else
-											sb.AppendLine("+ " + result.Lines[ix].Text);
-										break;
-									case ChangeType.Deleted:
-										sb.AppendLine("- " + result.Lines[ix].Text);
-										break;
-									case ChangeType.Modified:
-										sb.AppendLine("* " + result.Lines[ix].Text);
-										break;
-									case ChangeType.Unchanged:
-										sb.AppendLine("  " + result.Lines[ix].Text);
-										break;
-									default:
-										sb.AppendLine("? " + result.Lines[ix].Text);
-										break;
-								}
-								lastDiffPiece = result.Lines[ix];
-							}
-							writer.Write(sb.ToString());
+						foreach (var activityPeriod in employee.Value.ActivityPeriods)
+						{
+							var activityPeriod2 = employee2.ActivityPeriods.Find(item => item.BeginDate.Equals(activityPeriod.BeginDate));
+							if (activityPeriod2 != null)
+								Comparison.TextDiff(activityPeriod2.ToString(), activityPeriod.ToString(), dataItems, true);
 						}
 					}
 				}
+				foreach (var item in dataItems)
+				{
+					switch (item.Status)
+					{
+						case ChangeStatus.Deleted:
+							writer.Write("- ");
+							break;
+						case ChangeStatus.Inserted:
+							writer.Write("+ ");
+							break;
+						case ChangeStatus.Modified:
+							writer.Write("* ");
+							break;
+						default:
+							writer.Write("  ");
+							break;
+					}
+					writer.WriteLine(item.Key + ",'" + item.Value + "','" + item.OldValue + "'");
+				}
 			}
+			muniteur.Stop();
+			Console.WriteLine("Comparision in " + muniteur.Elapsed + " seconds");
 		}
 	}
 }

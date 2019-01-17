@@ -45,7 +45,6 @@ namespace ITI.DSNTree
 			eData.TryGetValue(KeyLastName, out _lastName);
 			eData.TryGetValue(KeyFirstName, out _firstName);
 			eData.TryGetValue(KeyMatricule, out _matricule);
-
 		}
 
 		void LoadActivityPeriods()
@@ -69,6 +68,15 @@ namespace ITI.DSNTree
 				_specialPeriods.Add(specialPeriod);
 			}
 		}
+
+		public override string ToString()
+		{
+			StringBuilder sb = new StringBuilder();
+			foreach (var d in _employeeDataBlock.Leaves.First().Data)
+				sb.AppendLine(d.Key + ",'" + d.Value + "'");
+			return sb.ToString();
+		}
+
 
 		public string Nir => _nir;
 		public string LastName => _lastName;

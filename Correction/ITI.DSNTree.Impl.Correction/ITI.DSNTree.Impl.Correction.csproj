@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <PackageReference Include="DiffLib" Version="2017.7.26.1241" />
-    <PackageReference Include="DiffPatch" Version="1.0.0" />
     <PackageReference Include="DiffPlex" Version="1.4.2" />
   </ItemGroup>
 

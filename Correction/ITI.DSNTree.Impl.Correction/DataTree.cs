@@ -29,10 +29,10 @@ namespace ITI.DSNTree
 		public void LoadDataTree(string path)
 		{
 
-			//int lineCouter = 0;
+			int lineCouter = 0;
 
-			//Stopwatch muniteur = new Stopwatch();
-			//muniteur.Start();
+			Stopwatch muniteur = new Stopwatch();
+			muniteur.Start();
 
 			using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("iso-8859-1")))
 			{
@@ -73,7 +73,7 @@ namespace ITI.DSNTree
 
 				while ((line = reader.ReadLine()) != null)
 				{
-					//lineCouter++;
+					lineCouter++;
 					kv = line.Split(',');
 					if (kv.Length < 2)
 						continue;
@@ -151,8 +151,8 @@ namespace ITI.DSNTree
 				}//Fin while reader.ReadLine()
 
 			}//Fin using
-			//muniteur.Stop();
-			//Console.WriteLine("Loading " + lineCouter + " lines in " + muniteur.Elapsed + " seconds");
+			muniteur.Stop();
+			Console.WriteLine("Loading " + lineCouter + " lines in " + muniteur.Elapsed + " seconds");
 		}
 
 		public List<IDataBlock> FindBlock(string id, IDataBlock block = null)

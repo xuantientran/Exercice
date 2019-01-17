@@ -41,7 +41,7 @@ namespace ITI.DSNTree
 				foreach (var leaf in current.Leaves)
 				{
 					foreach (var d in leaf.Data)
-						sb.AppendLine(d.Key + "='" + d.Value + "'");
+						sb.AppendLine(d.Key + ",'" + d.Value + "'");
 				}
 			}
 
