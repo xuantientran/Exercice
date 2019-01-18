@@ -65,13 +65,20 @@ namespace ITI.DSNTree
 			if (string.IsNullOrEmpty(newText) || string.IsNullOrEmpty(newText))
 				return;
 
-			Dictionary<int, DataItem> deletedItems = new Dictionary<int, DataItem>();
+			Dictionary<int, DataItem> modifiedItems = new Dictionary<int, DataItem>();
 			DataItem dataItem = null;
 
 			var builder = new InlineDiffBuilder(new Differ());
 			var result = builder.BuildDiffModel(oldText, newText);
+			DataItem modifiedItem = null;
 			DiffPiece diffPiece = null;
+
+			//the current line index
 			int pos = -1;
+			//the number of modifications done
+			int modiToBeDone = 0;
+			int modiDone = 0;
+			bool lastmodified = false;
 			foreach (var diff in result.Lines)
 			{
 				pos++;
@@ -79,34 +86,23 @@ namespace ITI.DSNTree
 				if (kv.Length == 1)
 					continue;
 				kv[1] = kv[1].Substring(1, kv[1].Length - 2);
-				kv[1] += "|" + diff.Position + "|" + pos;
+				kv[1] += "|" + (diff.Position -1) + "|" + pos;
 				dataItem = new DataItem { Key = kv[0] };
 				switch (diff.Type)
 				{
 					case ChangeType.Inserted:
-						diffPiece = result.Lines[(int)diff.Position - 1];
-						string[] cv = diffPiece.Text.Split(',');
-						if ((diffPiece.Type == ChangeType.Deleted)
-							&& (string.Compare(dataItem.Key, cv[0]) == 0))
-						{
-							dataItem.Value = kv[1];
-							dataItem.OldValue = cv[1].Substring(1, cv[1].Length - 2);
-							dataItem.Status = ChangeStatus.Modified;
-							dataItems.Add(dataItem);
-							//dataItems.Remove(deletedItems[(int)diff.Position - 1]);
-						}
-						else
-						{
-							dataItem.Status = ChangeStatus.Inserted;
-							dataItem.Value = kv[1];
-							dataItems.Add(dataItem);
-						}
+						dataItem.Status = ChangeStatus.Inserted;
+						dataItem.Value = kv[1];
+						dataItems.Add(dataItem);
+
+						lastmodified = true;
 						break;
 					case ChangeType.Deleted:
 						dataItem.OldValue = kv[1];
 						dataItem.Status = ChangeStatus.Deleted;
 						dataItems.Add(dataItem);
-						deletedItems.Add(pos, dataItem);
+						modifiedItems.Add(pos, dataItem);
+						lastmodified = false;
 						break;
 					default:
 						if (includUnchanged)
@@ -115,6 +111,7 @@ namespace ITI.DSNTree
 							dataItem.Status = ChangeStatus.Unchanged;
 							dataItems.Add(dataItem);
 						}
+						lastmodified = false;
 						break;
 				}
 			}
