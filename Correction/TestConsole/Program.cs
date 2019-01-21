@@ -9,7 +9,7 @@ namespace TestConsole
 	{
 		static void Main(string[] args)
 		{
-			Test.TestComparison();
+			Test.TestToString();
 			//Test.TestTree();
 			//Utilitaire.Diff();
 			//Utilitaire.Diff();

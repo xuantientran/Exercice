@@ -17,6 +17,14 @@ namespace ITI.DSNTree
 			_data = data;
 		}
 
+		public override string ToString()
+		{
+			StringBuilder sb = new StringBuilder();
+			foreach (var kv in _data)
+				sb.AppendLine(kv.Key + ",'" + kv.Value + "'");
+			return sb.ToString();
+		}
+
 		public Dictionary<string, string> Data { get => _data; set => _data = value; }
 		public IDataBlock Block { get => _block; set => _block = value; }
 	}

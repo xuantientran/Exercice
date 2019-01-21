@@ -20,6 +20,26 @@ namespace ITI.DSNTree
 			_leaves = new List<IDataLeaf>();
 		}
 
+		public override string ToString()
+		{
+			StringBuilder sb = new StringBuilder();
+			IDataBlock current = this;
+			Stack<IDataBlock> stack = new Stack<IDataBlock>();
+			stack.Push(current);
+			while (stack.Count > 0)
+			{
+				current = stack.Pop();
+
+				for (var i = current.Children.Count - 1; i >= 0; i--)
+					stack.Push(current.Children[i]);
+
+				foreach (var leaf in current.Leaves)
+					sb.Append(leaf.ToString());
+			}
+			return sb.ToString();
+		}
+
+
 		public string Id { get => _id; set => _id = value; }
 		public IDataBlock Parent { get => _parent; set => _parent = value; }
 		public List<IDataLeaf> Leaves { get => _leaves; set => _leaves = value; }

@@ -19,13 +19,13 @@ namespace ITI.DSNTree
 		string _raisonSociale;
 		string _address;
 
-		const string beneficiaryQualityKey = "S70.G10.00.001";
-		const string beneficiaryLastNameKey = "S70.G10.00.002.001";
-		const string beneficiaryFirstNameKey = "S70.G10.00.002.002";
-		const string beneficiarySirenKey = "S70.G10.00.003.001";
-		const string beneficiaryNicKey = "S70.G10.00.003.002";
-		const string beneficiaryRaisonSocialeKey = "S70.G10.00.003.003";
-		const string beneficiaryAdressKey = "S70.G10.00.004.006";
+		const string KeyBeneficiaryQuality = "S70.G10.00.001";
+		const string KeyBeneficiaryLastName = "S70.G10.00.002.001";
+		const string KeyBeneficiaryFirstName = "S70.G10.00.002.002";
+		const string KeyBeneficiarySiren = "S70.G10.00.003.001";
+		const string KeyBeneficiaryNic = "S70.G10.00.003.002";
+		const string KeyBeneficiaryRaisonSociale = "S70.G10.00.003.003";
+		const string KeyBeneficiaryAdress = "S70.G10.00.004.006";
 
 		public Honoraire(IDataTree dataTree, IDataBlock honoraireBlock)
 		{
@@ -37,14 +37,16 @@ namespace ITI.DSNTree
 		void LoadHonoraire()
 		{
 			var hData = _honoraireBlock.Leaves.First().Data;
-			hData.TryGetValue(beneficiaryQualityKey, out _quality);
-			hData.TryGetValue(beneficiaryLastNameKey, out _lastName);
-			hData.TryGetValue(beneficiaryFirstNameKey, out _firstName);
-			hData.TryGetValue(beneficiarySirenKey, out _siren);
-			hData.TryGetValue(beneficiaryNicKey, out _nic);
-			hData.TryGetValue(beneficiaryRaisonSocialeKey, out _raisonSociale);
-			hData.TryGetValue(beneficiaryAdressKey, out _address);
+			hData.TryGetValue(KeyBeneficiaryQuality, out _quality);
+			hData.TryGetValue(KeyBeneficiaryLastName, out _lastName);
+			hData.TryGetValue(KeyBeneficiaryFirstName, out _firstName);
+			hData.TryGetValue(KeyBeneficiarySiren, out _siren);
+			hData.TryGetValue(KeyBeneficiaryNic, out _nic);
+			hData.TryGetValue(KeyBeneficiaryRaisonSociale, out _raisonSociale);
+			hData.TryGetValue(KeyBeneficiaryAdress, out _address);
 		}
+
+		public override string ToString() => _honoraireBlock.ToString();
 
 		public string Quality => _quality;
 		public string LastName => _lastName;

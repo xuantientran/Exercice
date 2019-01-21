@@ -20,6 +20,11 @@ namespace TestConsole
 		static string GetSolutionDirectory() => Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(GetThisFilePath())));
 		static string GetDataDirectory() => Path.Combine(GetSolutionDirectory(), "Data");
 
+		static string pathDsnTree = Path.Combine(GetDataDirectory(), "Example0", "dsn.txt");
+		static string pathDataTree = Path.Combine(GetDataDirectory(), "Example0", "TestData.txt");
+		static string pathDataTree2 = Path.Combine(GetDataDirectory(), "Example0", "TestData2.txt");
+		static string pathResult = Path.Combine(GetDataDirectory(), "Example0", "result.txt");
+
 		public static void TestTree()
 		{
 			var path = Path.Combine(GetDataDirectory(), "Example0", "dsn.txt");
@@ -38,6 +43,17 @@ namespace TestConsole
 			}
 			Utilitaire.Traverse(tree.Root);
 			*/
+		}
+
+		public static void TestToString()
+		{
+			using (StreamWriter writer = new StreamWriter(pathResult, false))
+			{
+				IDsnTree dsnTree = DsnTreeFactory.LoadTree(pathDsnTree);
+				IDataTree dataTree = DsnTreeFactory.loadDataTree(dsnTree, pathDataTree);
+				IDsnData dsnData = new DsnData(dataTree);
+				writer.Write(dsnData.DataDispatch.ToString());
+			}
 		}
 
 		public static void TestDsnData()
@@ -77,10 +93,6 @@ namespace TestConsole
 		{
 			//string pathDataTree = @"D:\Donnees_VParis\PSBDADSU_VIL.C11_180126_003118_9.026.756_77.327.txt";
 			//string pathDataTree2 = @"D:\Donnees_VParis\PSBDADSU_VIL.C11_180126_003118_9.026.756_77.327.modifie.txt";
-			string pathDsnTree = Path.Combine(GetDataDirectory(), "Example0", "dsn.txt");
-			string pathDataTree = Path.Combine(GetDataDirectory(), "Example0", "TestData.txt");
-			string pathDataTree2 = Path.Combine(GetDataDirectory(), "Example0", "TestData2.txt");
-			string pathResult = Path.Combine(GetDataDirectory(), "Example0", "result.txt");
 
 			Stopwatch muniteur = new Stopwatch();
 			muniteur.Start();
@@ -104,7 +116,7 @@ namespace TestConsole
 						{
 							var activityPeriod2 = employee2.ActivityPeriods.Find(item => item.BeginDate.Equals(activityPeriod.BeginDate));
 							if (activityPeriod2 != null)
-								Comparison.TextDiff(activityPeriod2.ToString(), activityPeriod.ToString(), dataItems, true, writer);
+								Comparison.TextDiff(activityPeriod2.ToString(), activityPeriod.ToString(), dataItems, true);
 						}
 					}
 				}

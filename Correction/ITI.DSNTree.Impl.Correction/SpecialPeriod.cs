@@ -21,6 +21,8 @@ namespace ITI.DSNTree
 
 		void LoadSpecialPeriod() =>_specialPeriodDataBlock.Leaves.First().Data.TryGetValue(specialPeriodBeginDateKey, out _beginDate);
 
+		public override string ToString() => _specialPeriodDataBlock.ToString();
+
 		public string BeginDate => _beginDate;
 		public IDataBlock SpecialPeriodDataBlock => _specialPeriodDataBlock;
 	}

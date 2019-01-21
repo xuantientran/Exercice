@@ -25,28 +25,7 @@ namespace ITI.DSNTree
 
 		}
 
-		public override string ToString()
-		{
-			StringBuilder sb = new StringBuilder();
-			IDataBlock current = _activityPeriodDataBlock;
-
-			Stack<IDataBlock> stack = new Stack<IDataBlock>();
-			stack.Push(current);
-			while (stack.Count > 0)
-			{
-				current = stack.Pop();
-				for (var i = current.Children.Count - 1; i >= 0; i--)
-					stack.Push(current.Children[i]);
-
-				foreach (var leaf in current.Leaves)
-				{
-					foreach (var d in leaf.Data)
-						sb.AppendLine(d.Key + ",'" + d.Value + "'");
-				}
-			}
-
-			return sb.ToString();
-		}
+		public override string ToString() => _activityPeriodDataBlock.ToString();
 
 		public string BeginDate => _beginDate;
 		public IDataBlock ActivityPeriodDataBlock => _activityPeriodDataBlock;

@@ -61,25 +61,25 @@ namespace ITI.DSNTree
 			}
 		}
 
-		public static void TextDiff(string newText, string oldText, List<DataItem> dataItems, bool includUnchanged = false, StreamWriter writer = null)
-		{
-			if (string.IsNullOrEmpty(newText) || string.IsNullOrEmpty(newText))
-				return;
 
-			Dictionary<int, DataItem> modifiedItems = new Dictionary<int, DataItem>();
+		public static int TextDiff(string newText, string oldText, List<DataItem> dataItems, bool includUnchanged = false)
+		{
+			if (string.IsNullOrEmpty(newText) || string.IsNullOrEmpty(oldText))
+				return 0;
+
+			Dictionary<int, DataItem> modis = new Dictionary<int, DataItem>();
+
 			DataItem dataItem = null;
 
 			var builder = new InlineDiffBuilder(new Differ());
 			var result = builder.BuildDiffModel(oldText, newText);
 			int modiPos;
 			int pos = 0;
-			//the current line index
-			//the number of modifications done
 			foreach (var diff in result.Lines)
 			{
 				pos++;
 				string[] kv = diff.Text.Split(',');
-				if (kv.Length == 1)
+				if (kv.Length <= 1)
 					continue;
 				kv[1] = kv[1].Substring(1, kv[1].Length - 2);
 				//kv[1] += "|" + diff.Position + "|" + pos;
@@ -89,37 +89,40 @@ namespace ITI.DSNTree
 					case ChangeType.Inserted:
 						pos = (int)diff.Position;
 						modiPos = pos;
-						if (modifiedItems.ContainsKey(modiPos))
+						if (modis.ContainsKey(modiPos))
 						{
-							modifiedItems[modiPos].Value = kv[1];
-							modifiedItems[modiPos].Status = ChangeStatus.Modified;
+							modis[modiPos].Value = kv[1];
+							modis[modiPos].Status = ChangeStatus.Modified;
 						}
 						else
 						{
-							modifiedItems.Clear();
 							dataItem.Status = ChangeStatus.Inserted;
 							dataItem.Value = kv[1];
-							dataItems.Add(dataItem);
+							modis[pos] = dataItem;
 						}
 						break;
 					case ChangeType.Deleted:
 						dataItem.OldValue = kv[1];
 						dataItem.Status = ChangeStatus.Deleted;
-						dataItems.Add(dataItem);
-						modifiedItems.Add(pos, dataItem);
+						modis[pos] = dataItem;
 						break;
 					default:
 						pos = (int)diff.Position;
-						modifiedItems.Clear();
 						if (includUnchanged)
 						{
 							dataItem.Value = kv[1];
+							dataItem.OldValue = kv[1];
 							dataItem.Status = ChangeStatus.Unchanged;
-							dataItems.Add(dataItem);
+							modis[pos] = dataItem;
 						}
 						break;
 				}
 			}
+			foreach (var m in modis)
+			{
+				dataItems.Add(m.Value);
+			}
+			return modis.Count;
 		}
 
 	}

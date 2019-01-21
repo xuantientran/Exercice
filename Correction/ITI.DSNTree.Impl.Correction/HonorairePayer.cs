@@ -9,8 +9,8 @@ namespace ITI.DSNTree
 	public class HonorairePayer : IHonorairePayer
 	{
 		public const string KeyHonorairePayerBlock = "S70.G05.00";
-		public const string honorairePayerNicKey = "S70.G05.00.001";
-		public const string honoraireBlocKey = "S70.G10.00";
+		public const string KeyHonorairePayerNic = "S70.G05.00.001";
+		public const string KeyHonoraireBloc = "S70.G10.00";
 
 		IDataTree _dataTree;
 		IDataBlock _honorairePayerBlock;
@@ -29,18 +29,26 @@ namespace ITI.DSNTree
 		void LoadHonorairePayer()
 		{
 			var pData = _honorairePayerBlock.Leaves.First().Data;
-			pData.TryGetValue(honorairePayerNicKey, out _nic);
+			pData.TryGetValue(KeyHonorairePayerNic, out _nic);
 		}
 
 		void LoadHonoraires()
 		{
-			IHonoraire honoraire;
-			List<IDataBlock> honoraireBlocks = ((DataTree)_dataTree).FindBlock(honoraireBlocKey, _honorairePayerBlock);
+			List<IDataBlock> honoraireBlocks = ((DataTree)_dataTree).FindBlock(KeyHonoraireBloc, _honorairePayerBlock);
 			foreach (var honoraireBlock in honoraireBlocks)
-			{
-				honoraire = new Honoraire(_dataTree, honoraireBlock);
-				_honoraires.Add(honoraire);
-			}
+				_honoraires.Add(new Honoraire(_dataTree, honoraireBlock));
+		}
+
+		public override string ToString()
+		{
+			StringBuilder sb = new StringBuilder();
+
+			sb.Append(_honorairePayerBlock.Leaves.First().ToString());
+
+			foreach (var honoraire in _honoraires)
+				sb.Append(honoraire.ToString());
+
+			return sb.ToString();
 		}
 
 		public string Nic => _nic;

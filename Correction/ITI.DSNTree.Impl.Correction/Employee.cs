@@ -17,7 +17,7 @@ namespace ITI.DSNTree
 		public const string KeySpecialPeriodBlock = "S60.G05.00";
 
 		IDataTree _dataTree;
-		
+
 		//Employee block
 		IDataBlock _employeeDataBlock;
 		string _nir;
@@ -72,11 +72,14 @@ namespace ITI.DSNTree
 		public override string ToString()
 		{
 			StringBuilder sb = new StringBuilder();
-			foreach (var d in _employeeDataBlock.Leaves.First().Data)
-				sb.AppendLine(d.Key + ",'" + d.Value + "'");
+
+			sb.Append(_employeeDataBlock.Leaves.First().ToString());
+			foreach (var activityPeriod in _activityPeriods)
+				sb.Append(activityPeriod.ToString());
+			foreach (var specialPeriod in _specialPeriods)
+				sb.Append(specialPeriod.ToString());
 			return sb.ToString();
 		}
-
 
 		public string Nir => _nir;
 		public string LastName => _lastName;
