@@ -3,6 +3,7 @@ using DiffPlex.DiffBuilder;
 using DiffPlex.DiffBuilder.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,7 +61,7 @@ namespace ITI.DSNTree
 			}
 		}
 
-		public static void TextDiff(string newText, string oldText, List<DataItem> dataItems, bool includUnchanged = false)
+		public static void TextDiff(string newText, string oldText, List<DataItem> dataItems, bool includUnchanged = false, StreamWriter writer = null)
 		{
 			if (string.IsNullOrEmpty(newText) || string.IsNullOrEmpty(newText))
 				return;
@@ -70,15 +71,10 @@ namespace ITI.DSNTree
 
 			var builder = new InlineDiffBuilder(new Differ());
 			var result = builder.BuildDiffModel(oldText, newText);
-			DataItem modifiedItem = null;
-			DiffPiece diffPiece = null;
-
+			int modiPos;
+			int pos = 0;
 			//the current line index
-			int pos = -1;
 			//the number of modifications done
-			int modiToBeDone = 0;
-			int modiDone = 0;
-			bool lastmodified = false;
 			foreach (var diff in result.Lines)
 			{
 				pos++;
@@ -86,32 +82,41 @@ namespace ITI.DSNTree
 				if (kv.Length == 1)
 					continue;
 				kv[1] = kv[1].Substring(1, kv[1].Length - 2);
-				kv[1] += "|" + (diff.Position -1) + "|" + pos;
+				//kv[1] += "|" + diff.Position + "|" + pos;
 				dataItem = new DataItem { Key = kv[0] };
 				switch (diff.Type)
 				{
 					case ChangeType.Inserted:
-						dataItem.Status = ChangeStatus.Inserted;
-						dataItem.Value = kv[1];
-						dataItems.Add(dataItem);
-
-						lastmodified = true;
+						pos = (int)diff.Position;
+						modiPos = pos;
+						if (modifiedItems.ContainsKey(modiPos))
+						{
+							modifiedItems[modiPos].Value = kv[1];
+							modifiedItems[modiPos].Status = ChangeStatus.Modified;
+						}
+						else
+						{
+							modifiedItems.Clear();
+							dataItem.Status = ChangeStatus.Inserted;
+							dataItem.Value = kv[1];
+							dataItems.Add(dataItem);
+						}
 						break;
 					case ChangeType.Deleted:
 						dataItem.OldValue = kv[1];
 						dataItem.Status = ChangeStatus.Deleted;
 						dataItems.Add(dataItem);
 						modifiedItems.Add(pos, dataItem);
-						lastmodified = false;
 						break;
 					default:
+						pos = (int)diff.Position;
+						modifiedItems.Clear();
 						if (includUnchanged)
 						{
 							dataItem.Value = kv[1];
 							dataItem.Status = ChangeStatus.Unchanged;
 							dataItems.Add(dataItem);
 						}
-						lastmodified = false;
 						break;
 				}
 			}

@@ -78,8 +78,8 @@ namespace TestConsole
 			//string pathDataTree = @"D:\Donnees_VParis\PSBDADSU_VIL.C11_180126_003118_9.026.756_77.327.txt";
 			//string pathDataTree2 = @"D:\Donnees_VParis\PSBDADSU_VIL.C11_180126_003118_9.026.756_77.327.modifie.txt";
 			string pathDsnTree = Path.Combine(GetDataDirectory(), "Example0", "dsn.txt");
-			string pathDataTree = Path.Combine(GetDataDirectory(), "Example0", "V01X13.Myriam RENAULD.txt");
-			string pathDataTree2 = Path.Combine(GetDataDirectory(), "Example0", "V01X13.Myriam RENAULD.modified.txt");
+			string pathDataTree = Path.Combine(GetDataDirectory(), "Example0", "TestData.txt");
+			string pathDataTree2 = Path.Combine(GetDataDirectory(), "Example0", "TestData2.txt");
 			string pathResult = Path.Combine(GetDataDirectory(), "Example0", "result.txt");
 
 			Stopwatch muniteur = new Stopwatch();
@@ -104,7 +104,7 @@ namespace TestConsole
 						{
 							var activityPeriod2 = employee2.ActivityPeriods.Find(item => item.BeginDate.Equals(activityPeriod.BeginDate));
 							if (activityPeriod2 != null)
-								Comparison.TextDiff(activityPeriod2.ToString(), activityPeriod.ToString(), dataItems, true);
+								Comparison.TextDiff(activityPeriod2.ToString(), activityPeriod.ToString(), dataItems, true, writer);
 						}
 					}
 				}
