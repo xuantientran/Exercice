@@ -15,15 +15,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{BA21B67E-6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example0", "Example0", "{942C91CB-7F20-4F3C-8F59-1E9668082189}"
 	ProjectSection(SolutionItems) = preProject
-		..\Data\Example0\TestData.txt = ..\Data\Example0\TestData.txt
+		..\Data\Example0\dsnTree1.txt = ..\Data\Example0\dsnTree1.txt
+		..\Data\Example0\dsnTree2.txt = ..\Data\Example0\dsnTree2.txt
+		..\Data\Example0\dsnTree3.txt = ..\Data\Example0\dsnTree3.txt
+		..\Data\Example0\result.txt = ..\Data\Example0\result.txt
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example2", "Example2", "{0B152EC3-1A35-45B8-BDF1-226A106A39A1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example1", "Example1", "{0B152EC3-1A35-45B8-BDF1-226A106A39A1}"
 	ProjectSection(SolutionItems) = preProject
-		..\Data\Example2\Chunk1.txt = ..\Data\Example2\Chunk1.txt
-		..\Data\Example2\Chunk2.txt = ..\Data\Example2\Chunk2.txt
-		..\Data\Example2\Chunk3.txt = ..\Data\Example2\Chunk3.txt
-		..\Data\Example2\Result.txt = ..\Data\Example2\Result.txt
+		..\Data\Example1\dsnTree.txt = ..\Data\Example1\dsnTree.txt
+		..\Data\Example1\result.txt = ..\Data\Example1\result.txt
 	EndProjectSection
 EndProject
 Global

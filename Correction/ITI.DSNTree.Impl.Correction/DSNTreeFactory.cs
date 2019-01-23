@@ -11,7 +11,7 @@ namespace ITI.DSNTree
 	{
 		public static IDsnTree LoadTree( string path )
 		{
-			return null;
+			return new DsnTree(path);
 		}
 	}
 }
