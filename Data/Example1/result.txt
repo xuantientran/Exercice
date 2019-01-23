@@ -1,105 +1,423 @@
-S00.G00.00 - Racine (1,1)
-	S10.G01.00 - Emetteur (1,1)
-		S10.G01.01 - Contacts Emetteur (1,*)
-		S10.G01.05 - Compte rendu d'exploitation (0,1)
-		S20.G01.00 - Déclaration (1,1)
-			S20.G01.05 - Compte rendu d'exploitation (0,1)
-			S20.G05.00 - Déclaration de résultats (0,1)
-			S20.G10.05 - Complément d'identification pour les entreprises du spectacle (0,1)
-			S20.G10.10 - Complément d'identification pour les entreprises de services à la personne (0,1)
-			S30.G01.00 - Identification du Salarié (0,*)
-				S40.G01.00 - Période d'activité (1,*)
-					S40.G05.00 - Adresse du lieu de travail (0,1)
-					S40.G10.00 - Situation administrative générale du salarié ou de l'agent (1,1)
-					S40.G10.02 - Mandats des élus (0,1)
-					S40.G10.05 - Situation administrative spécifique du salarié sous contrat de droit privé (0,1)
-						S40.G10.06 - Caisse spécifique de congés payés (0,1)
-						S40.G10.08 - Complément salarié sous contrat de droit privé dans le secteur public (0,1)
-					S40.G10.10 - Situation administrative spécifique de l'agent sous statut d'emploi de droit public (0,1)
-					S40.G10.15 - Emploi supérieur antérieur de l'agent sous statut personnel de droit public (0,1)
-					S40.G10.24 - Départ ou retour de détachement de l'agent sous statut personnel de droit public (0,1)
-					S40.G10.25 - Situation d'origine de l'agent sous statut personnel de droit public détaché (0,1)
-					S40.G15.00 - Durée et quantité du travail effectuées (0,1)
-					S40.G15.05 - Durée du travail secteur privé (0,1)
-					S40.G15.10 - Durée du travail secteur public (0,1)
-					S40.G20.00 - Régimes de base obligatoires de Sécurité Sociale (1,1)
-					S40.G25.00 - Accidents du travail (0,1)
-					S40.G28.05 - Assiettes de rémunérations Sécurité Sociale (1,1)
-					S40.G28.10 - Primes versées aux salariés sous contrat de droit privé (0,*)
-					S40.G28.15 - Indemnités versées en fin de contrat de travail (0,*)
-					S40.G28.20 - Indemnités et primes versées aux agents sous statut public (0,*)
-					S40.G28.56 - Indemnités de congés payés BTP (0,1)
-					S40.G30.02 - Bases brutes exceptionnelles URSSAF (0,*)
-					S40.G30.03 - Bases plafonnées exceptionnelles URSSAF (0,*)
-					S40.G30.04 - CSG (1,1)
-					S40.G30.06 - Bases spécifiques exonérations de cotisations URSSAF (0,*)
-					S40.G30.10 - Epargne salariale (0,*)
-					S40.G30.11 - Actions gratuites (0,*)
-					S40.G30.12 - Options sur titres (stock options) (0,*)
-					S40.G30.13 - Bons de souscription de parts de créateur d'entreprise (BSPCE) (0,*)
-					S40.G30.15 - Participation patronale au financement d'avantages particuliers (0,*)
-					S40.G30.20 - Cas particuliers autres sommes exonérées (0,*)
-					S40.G30.35 - Allègements loi du 21 août 2007 (0,1)
-						S40.G30.36 - Allègements loi du 21 août 2007, rémunérations exonérées (1,*)
-					S40.G30.40 - Réduction générale des contributions et cotisations patronales (Réduction Fillon)- Crédit d'impôt pour la compétitivité et l'emploi- Cotisation d'allocations familiales (0,1)
-					S40.G40.00 - Données fiscales (1,1)
-						S40.G40.05 - Avantages en nature (0,*)
-						S40.G40.10 - Frais professionnels (0,*)
-					S42.G05.05 - Retraite complémentaire IRCANTEC (0,1)
-						S42.G05.06 - Compléments personnel médical hospitalier relevant de l'IRCANTEC (0,1)
-						S42.G05.10 - Rappels Ircantec (0,1)
-					S43.G05.05 - Régimes CNRACL FSPOEIE (0,1)
-					S44.G03.00 - Modalités de cotisation Agirc - Arrco (0,1)
-						S44.G03.05 - Institutions de Retraite Complémentaire AGIRC ARRCO destinataires (1,3)
-						S44.G10.10 - Bases spécifiques AGIRC-ARRCO (0,*)
-						S44.G40.05 - Sommes isolées AGIRC-ARRCO (0,*)
-					S45.G01.00 - Informations salarié destinées à une institution de prévoyance, mutuelle ou société d'assurances (0,1)
-						S45.G01.05 - Anciennetés du salarié (1,4)
-						S45.G05.00 - Contrat souscrit auprès d'une institution de prévoyance, mutuelle ou société d'assurances (1,*)
-							S45.G05.05 - Evènement salarié (0,*)
-							S45.G05.10 - Période de cotisation (1,*)
-								S45.G05.15 - Eléments de rémunération (1,1)
-								S45.G05.20 - Bases ou montants spécifiques de cotisations (0,*)
-								S45.G05.25 - Nombre d'ayants droit (0,1)
-						S45.G10.00 - Ayants droit (0,*)
-							S45.G10.05 - Informations contrats ayant droit (1,*)
-					S47.G05.05 - Taux et code emploi SRE (0,1)
-						S47.G15.05 - Cessation définitive de fonction (0,1)
-						S47.G20.10 - Services civils rendus hors d'Europe (0,*)
-						S47.G65.05 - Fonctionnaire handicapé (0,1)
-					S48.G10.00 - Assurance Chômage (1,1)
-					S49.G61.05 - Complément salarié SNCF (0,1)
-						S49.G61.10 - Bases CPRPSNCF (2,4)
-						S49.G61.15 - Cotisations CPRPSNCF (1,2)
-					S49.G69.00 - Motif Cavimac (0,2)
-					S53.G01.00 - Retraite Additionnelle de la Fonction Publique (0,1)
-					S54.G05.05 - Retraite complémentaire des avocats salariés (CNBF) (0,1)
-				S60.G05.00 - Période d'inactivité ou situations particulières (0,*)
-					S60.G05.15 - Montants situations particulières Agirc-Arrco, Ci-Btp, Cnbf, Prévoyance (0,1)
-					S60.G05.42 - Montant situations particulières Ircantec (0,1)
-					S60.G05.43 - Taux de rémunération CNRACL FSPOEIE situations particulières (0,1)
-				S65.G05.00 - Période d'exposition à la pénibilité (0,*)
-					S65.G05.05 - Facteur d'exposition à la pénibilité (1,*)
-				S65.G40.06 - Fonds Nationaux de Compensation (0,1)
-				S65.G43.05 - Cotisations normales CNRACL-FSPOEIE (0,1)
-					S65.G43.07 - Exonération ou déduction de cotisations (0,*)
-					S65.G43.10 - Autres cotisations CNRACL (0,*)
-				S65.G47.00 - Traitements, cotisations, contributions SRE (0,1)
-					S65.G47.15 - Régularisations des cotisations SRE (0,*)
-					S65.G47.60 - Représentant légal SRE (0,1)
-				S65.G53.05 - Cotisations RAFP (0,1)
-				S65.G55.05 - Caisse de Retraite du Personnel Navigant Professionnel de l'Aéronautique Civile (CRPNPAC) (0,2)
-				S65.G61.00 - Rachat CPRPSNCF (0,*)
-				S65.G62.05 - Cotisations RAEP (0,2)
-			S70.G05.00 - Etablissement versant les honoraires (0,*)
-				S70.G10.00 - Bénéficiaire des honoraires (1,*)
-					S70.G10.05 - Avantages en nature (0,*)
-					S70.G10.10 - Prise en charge des indemnités (0,*)
-					S70.G10.15 - Rémunérations (0,*)
-			S80.G01.00 - Identification INSEE des établissements (1,*)
-				S80.G01.01 - Institution de prévoyance ou mutuelle ou société d'assurances avec contrat sans salarié (0,*)
-				S80.G01.02 - IRC AGIRC-ARRCO sans salarié concerné (0,*)
-				S80.G01.05 - Caisse Nationale des Barreaux Français sans salarié concerné (0,1)
-				S80.G45.05 - Cotisations établissement pour l'organisme de prévoyance (0,*)
-				S80.G62.00 - Assujettissements fiscaux (1,1)
-	S90.G01.00 - Totaux (1,1)
+S10.G01.00.001.001,'000000001'
+S10.G01.00.001.002,'00001'
+S10.G01.00.002,'Raison sociale'
+S10.G01.00.003.006,'182 rue de Paris'
+S10.G01.00.003.007,'75019'
+S10.G01.00.003.009,'Paris'
+S10.G01.00.003.010,'75019'
+S10.G01.00.003.012,'Localité'
+S10.G01.00.004,'7030185018'
+S10.G01.00.005,'Logiciel'
+S10.G01.00.006,'Editeur'
+S10.G01.00.008,'407C1DBA91'
+S10.G01.00.009,'40'
+S10.G01.00.010,'02'
+S10.G01.00.011,'V01X13'
+S10.G01.00.012,'01'
+S10.G01.00.003.001,'Localité'
+S10.G01.01.001.001,'01'
+S10.G01.01.001.002,'HORN Luca'
+S10.G01.01.002,'03'
+S10.G01.01.005,'mel@mel.mel'
+S10.G01.01.006,'0600000000'
+S10.G01.01.007,'0600000000'
+S10.G01.05.013.001,'000000002'
+S10.G01.05.013.002,'00002'
+S10.G01.05.015.001,'mel@mel.mel'
+S20.G01.00.001,'000000003'
+S20.G01.00.002,'Raison sociale'
+S20.G01.00.003.001,'01012016'
+S20.G01.00.003.002,'31122016'
+S20.G01.00.004.001,'01'
+S20.G01.00.004.002,'51'
+S20.G01.00.005,'11'
+S20.G01.00.007,'01'
+S20.G01.00.008,'00003'
+S20.G01.00.009.006,'153 rue de Paris'
+S20.G01.00.009.007,'75016'
+S20.G01.00.009.009,'Service distribution'
+S20.G01.00.009.010,'75016'
+S20.G01.00.009.012,'Localité'
+S20.G01.00.013.002,'7030185018'
+S20.G01.00.018,'A00'
+S30.G01.00.001,'0000000000001'
+S30.G01.00.002,'GROß'
+S30.G01.00.003,'Jan'
+S30.G01.00.008.001,'Paris'
+S30.G01.00.007,'01'
+S30.G01.00.008.006,'125 rue de Paris'
+S30.G01.00.008.007,'75013'
+S30.G01.00.008.010,'75013'
+S30.G01.00.008.012,'Localité'
+S30.G01.00.009,'07031997'
+S30.G01.00.010,'Localité'
+S30.G01.00.011,'75'
+S30.G01.00.012,'France'
+S30.G01.00.013,'France'
+S30.G01.00.019,'0000001'
+S40.G01.00.001,'01012016'
+S40.G01.00.002.001,'901'
+S40.G01.00.003,'31122016'
+S40.G01.00.004.001,'008'
+S40.G01.00.005,'00010'
+S40.G10.00.005,'10'
+S40.G10.00.008.001,'01'
+S40.G10.00.008.002,'01'
+S40.G10.00.009.001,'01'
+S40.G10.00.009.002,'16'
+S40.G10.00.010,'Conseiller Entreprise II'
+S40.G10.05.011.001,'375b'
+S40.G10.05.012.001,'01'
+S40.G10.05.012.002,'02'
+S40.G10.05.012.003,'90'
+S40.G10.05.013.004,'90'
+S40.G10.05.015.001,'04'
+S40.G10.05.015.002,'01'
+S40.G10.05.016,'5018'
+S40.G10.05.017,'NIVEAU 6    COEFFICIENT 430  INDICE      POSITION'
+S40.G15.00.001,'90'
+S40.G15.00.003,'0.00'
+S40.G15.05.013.001,'10'
+S40.G15.05.025.001,'90'
+S40.G15.05.025.003,'211.00'
+S40.G20.00.018.002,'200'
+S40.G20.00.018.003,'200'
+S40.G20.00.018.004,'200'
+S40.G25.00.025,'01'
+S40.G25.00.026,'913EH'
+S40.G25.00.028,'1.50'
+S40.G25.00.029,'1692.59'
+S40.G28.05.029.001,'33885.00'
+S40.G28.05.029.003,'01'
+S40.G28.05.029.004,'0'
+S40.G28.05.030.001,'33885.00'
+S40.G30.04.001,'33702.00'
+S40.G30.04.002,'0.00'
+S40.G30.15.001,'01'
+S40.G30.15.002.001,'776.00'
+S40.G30.15.001,'06'
+S40.G30.15.002.001,'508.00'
+S40.G40.00.035.001,'34294.00'
+S40.G40.00.055.001,'34294.00'
+S40.G40.00.056.001,'7688.00'
+S40.G40.00.057.001,'18893.00'
+S40.G40.00.058.001,'3373.00'
+S40.G40.00.063.001,'26868.00'
+S44.G03.00.001,'90'
+S44.G03.05.001,'G081'
+S44.G03.05.002,'221-501'
+S45.G01.00.001.001,'04022013'
+S45.G01.00.002,'02'
+S45.G01.00.006,'00'
+S45.G01.05.001.001,'01'
+S45.G01.05.001.002,'01'
+S45.G01.05.002,'1426'
+S45.G05.00.001,'M1/A80246-0001-P'
+S45.G05.00.002,'0001'
+S45.G05.00.003,'0001'
+S45.G05.00.005,'P0012'
+S45.G05.10.001,'01012016'
+S45.G05.10.002,'31122016'
+S45.G05.15.001.001,'33884.52'
+S45.G05.15.002.001,'33884.52'
+S45.G05.15.003.001,'33884.52'
+S45.G05.15.004.001,'0.00'
+S45.G05.15.005.001,'0.00'
+S45.G05.15.006.001,'0.00'
+S45.G05.15.007.001,'0.00'
+S45.G05.15.008.001,'0.00'
+S45.G05.15.009.001,'508.26'
+S48.G10.00.015,'03'
+S48.G10.00.016,'90'
+S48.G10.00.017,'02'
+S48.G10.00.018,'0.00'
+S60.G05.00.001,'100'
+S60.G05.00.002,'13062016'
+S60.G05.00.003,'13062016'
+S60.G05.15.001.001,'03'
+S60.G05.15.001.002,'01'
+S60.G05.15.001.003,'1.00'
+S70.G05.00.001,'00021'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000004'
+S70.G10.00.003.002,'00022'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'138 rue de Paris'
+S70.G10.00.004.010,'75014'
+S70.G10.00.004.012,'Localité'
+S70.G10.00.004.007,'75014'
+S70.G10.15.001,'00000001'
+S70.G10.15.002,'19800.00'
+S70.G05.00.001,'00023'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000005'
+S70.G10.00.003.002,'00024'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'126 rue de Paris'
+S70.G10.00.004.010,'75013'
+S70.G10.00.004.012,'Localité'
+S70.G10.00.004.007,'75013'
+S70.G10.15.001,'01'
+S70.G10.15.002,'16200.00'
+S70.G05.00.001,'00025'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000006'
+S70.G10.00.003.002,'00026'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'102 rue de Paris'
+S70.G10.00.004.007,'75010'
+S70.G10.00.004.010,'75010'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'13370.40'
+S70.G05.00.001,'00027'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000007'
+S70.G10.00.003.002,'00028'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'82 rue de Paris'
+S70.G10.00.004.007,'75008'
+S70.G10.00.004.010,'75008'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'12000.00'
+S70.G05.00.001,'00029'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000008'
+S70.G10.00.003.002,'00030'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'131 rue de Paris'
+S70.G10.00.004.007,'75013'
+S70.G10.00.004.010,'75013'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'9600.00'
+S70.G05.00.001,'00031'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000009'
+S70.G10.00.003.002,'00032'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'106 rue de Paris'
+S70.G10.00.004.007,'75011'
+S70.G10.00.004.010,'75011'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'8820.00'
+S70.G05.00.001,'00033'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000010'
+S70.G10.00.003.002,'00034'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'157 rue de Paris'
+S70.G10.00.004.007,'75016'
+S70.G10.00.004.010,'75016'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'7980.00'
+S70.G05.00.001,'00035'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000011'
+S70.G10.00.003.002,'00036'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'27 rue de Paris'
+S70.G10.00.004.007,'75002'
+S70.G10.00.004.010,'75002'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'6000.00'
+S70.G05.00.001,'00037'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000012'
+S70.G10.00.003.002,'00038'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'129 rue de Paris'
+S70.G10.00.004.007,'75013'
+S70.G10.00.004.010,'75013'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'4800.00'
+S70.G05.00.001,'00039'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000013'
+S70.G10.00.003.002,'00040'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'131 rue de Paris'
+S70.G10.00.004.007,'75013'
+S70.G10.00.004.010,'75013'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'3840.00'
+S70.G05.00.001,'00041'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000014'
+S70.G10.00.003.002,'00042'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'129 rue de Paris'
+S70.G10.00.004.007,'75013'
+S70.G10.00.004.010,'75013'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'3600.00'
+S70.G05.00.001,'00043'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.002.001,'SCHUSTER'
+S70.G10.00.002.002,'Gerhard'
+S70.G10.00.004.006,'9 rue de Paris'
+S70.G10.00.004.007,'75000'
+S70.G10.00.004.010,'75000'
+S70.G10.00.004.012,'Localité'
+S70.G10.10.001,'0000002'
+S70.G10.10.002,'2000.00'
+S70.G10.15.001,'01'
+S70.G10.15.002,'1449.27'
+S70.G05.00.001,'00044'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000015'
+S70.G10.00.003.002,'00045'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'58 rue de Paris'
+S70.G10.00.004.007,'75006'
+S70.G10.00.004.010,'75006'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'3240.00'
+S70.G05.00.001,'00046'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000016'
+S70.G10.00.003.002,'00047'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'13 rue de Paris'
+S70.G10.00.004.007,'75001'
+S70.G10.00.004.010,'75001'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'3000.00'
+S70.G05.00.001,'00048'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000017'
+S70.G10.00.003.002,'00049'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'43 rue de Paris'
+S70.G10.00.004.007,'75004'
+S70.G10.00.004.010,'75004'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'2400.00'
+S70.G05.00.001,'00050'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000018'
+S70.G10.00.003.002,'00051'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'169 rue de Paris'
+S70.G10.00.004.007,'75017'
+S70.G10.00.004.010,'75017'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'2040.00'
+S70.G05.00.001,'00052'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000019'
+S70.G10.00.003.002,'00053'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'98 rue de Paris'
+S70.G10.00.004.007,'75010'
+S70.G10.00.004.010,'75010'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'1872.00'
+S70.G05.00.001,'00054'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000020'
+S70.G10.00.003.002,'00055'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'196 rue de Paris'
+S70.G10.00.004.007,'75020'
+S70.G10.00.004.010,'75020'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'1800.00'
+S70.G05.00.001,'00056'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000021'
+S70.G10.00.003.002,'00057'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'151 rue de Paris'
+S70.G10.00.004.007,'75015'
+S70.G10.00.004.010,'75015'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'1680.00'
+S70.G05.00.001,'00058'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000022'
+S70.G10.00.003.002,'00059'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'9 rue de Paris'
+S70.G10.00.004.007,'75000'
+S70.G10.00.004.010,'75000'
+S70.G10.00.004.012,'Localité'
+S70.G10.10.001,'02'
+S70.G10.10.002,'719.79'
+S70.G10.15.001,'01'
+S70.G10.15.002,'100.00'
+S70.G05.00.001,'00060'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000023'
+S70.G10.00.003.002,'00061'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'104 rue de Paris'
+S70.G10.00.004.007,'75010'
+S70.G10.00.004.010,'75010'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'780.00'
+S70.G05.00.001,'00062'
+S70.G05.00.002,'31122016'
+S70.G10.00.001,'Qualité'
+S70.G10.00.003.001,'000000024'
+S70.G10.00.003.002,'00063'
+S70.G10.00.003.003,'Raison sociale'
+S70.G10.00.004.006,'119 rue de Paris'
+S70.G10.00.004.007,'75012'
+S70.G10.00.004.010,'75012'
+S70.G10.00.004.012,'Localité'
+S70.G10.15.001,'01'
+S70.G10.15.002,'650.00'
+S80.G01.00.001.002,'00010'
+S80.G01.00.002,'Etablissement 00010'
+S80.G01.00.003.001,'BP 3248'
+S80.G01.00.003.006,'119 rue de Lyon'
+S80.G01.00.003.007,'75012'
+S80.G01.00.003.009,'Service distribution'
+S80.G01.00.003.010,'75012'
+S80.G01.00.003.012,'Raison sociale'
+S80.G01.00.004.001,'74'
+S80.G01.00.005,'02'
+S80.G01.00.006,'9411Z'
+S80.G62.00.001,'02'
+S80.G62.00.003,'02'
+S80.G62.00.005,'02'
+S80.G62.00.008,'02'
+S90.G01.00.001,'45858'
+S90.G01.00.002,'1'

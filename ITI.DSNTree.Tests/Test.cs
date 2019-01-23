@@ -17,6 +17,7 @@ namespace ITI.DSNTree.Tests
 		static string GetSolutionDirectory() => Path.GetDirectoryName(Path.GetDirectoryName(GetThisFilePath()));
 		static string GetDataDirectory() => Path.Combine(GetSolutionDirectory(), "Data");
 		static string result = Path.Combine(GetDataDirectory(), "Example0", "result.txt");
+		static string result2 = Path.Combine(GetDataDirectory(), "Example1", "result.txt");
 
 		[Test]
 		public void T00_loading_simple_test_tree()
@@ -81,6 +82,56 @@ namespace ITI.DSNTree.Tests
 			dsnNode2.Id.Should().Be(id2);
 			dsnNode2.Children.Count.Should().Be(3);
 			CheckFileEquals(path, tree.ToString());
+		}
+
+		[Test]
+		public void T03_loading_simple_test_data()
+		{
+			string path = Path.Combine(GetDataDirectory(), "Example1", "dsnTree3.txt");
+			string dataPath = Path.Combine(GetDataDirectory(), "Example1", "data1.txt");
+			IDsnTree dsnTree = DsnTreeFactory.LoadTree(path);
+			IDataTree dataTree = DsnTreeFactory.LoadDataTree(dsnTree, dataPath);
+			dataTree.Count.Should().Be(28);
+			dataTree.FindBlock("S30.G01.00").Count.Should().Be(1);
+			dataTree.FindBlock("S40.G01.00").Count.Should().Be(1);
+			dataTree.FindBlock("S60.G05.00").Count.Should().Be(1);
+			dataTree.FindBlock("S80.G01.00").Count.Should().Be(1);
+			dataTree.FindBlock("S90.G01.00").Count.Should().Be(1);
+			CheckFileEquals(dataPath, dataTree.ToString());
+		}
+
+		[Test]
+		public void T04_loading_structure_test_data()
+		{
+			string path = Path.Combine(GetDataDirectory(), "Example1", "dsnTree3.txt");
+			string dataPath = Path.Combine(GetDataDirectory(), "Example1", "data1.txt");
+			IDsnTree dsnTree = DsnTreeFactory.LoadTree(path);
+			IDataTree dataTree = DsnTreeFactory.LoadDataTree(dsnTree, dataPath);
+			IDsnData data = DsnTreeFactory.LoadData(dataTree);
+			data.Employees.Count.Should().Be(1);
+			IEmployee employee = data.Employees.First().Value;
+			employee.LastName.Should().Be("GROß");
+			employee.FirstName.Should().Be("Jan");
+			data.Establishments.Count.Should().Be(1);
+			data.Establishments.First().Value.Enseigne.Should().Be("Etablissement 00010");
+		}
+
+		[Test]
+		public void T05_loading_one_employee_multiactivity_data()
+		{
+			string path = Path.Combine(GetDataDirectory(), "Example1", "dsnTree3.txt");
+			string dataPath = Path.Combine(GetDataDirectory(), "Example1", "data2.txt");
+			IDsnTree dsnTree = DsnTreeFactory.LoadTree(path);
+			IDataTree dataTree = DsnTreeFactory.LoadDataTree(dsnTree, dataPath);
+			IDsnData data = DsnTreeFactory.LoadData(dataTree);
+			data.Employees.Count.Should().Be(1);
+			IEmployee employee = data.Employees.First().Value;
+			employee.LastName.Should().Be("GROß");
+			employee.FirstName.Should().Be("Jan");
+			employee.ActivityPeriods.Count.Should().Be(2);
+			data.Establishments.Count.Should().Be(2);
+			IEstablishment establishment = data.Establishments.First().Value;
+			establishment.Nic.Should().Be("00010");
 		}
 
 		static void CheckFileEquals(string path, string text)
