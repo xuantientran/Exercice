@@ -14,10 +14,10 @@ namespace ITI.DSNTree
         int Count { get; }
 
 		//On a besoin d'une racine pour prendre arbre
-		IDSNNode Root { get; }
+		IDsnNode Root { get; }
 
 		//On récupère un noeud par son id en le cherchant dans le dictionnaire
-		IDSNNode Find(string id);
+		IDsnNode Find(string id);
 
 	}
 }

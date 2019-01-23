@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITI.DSNTree
 {
-	public interface IDSNNode
+	public interface IDsnNode
 	{
         /// <summary>
         /// Gets the node identifier.
@@ -22,22 +22,22 @@ namespace ITI.DSNTree
 		//S10.G01.01 - Contacts Emetteur(1,*)
 		//le parent S00.G00.00 a au moins 1 instance du noeud S10.G01.01 (InsMin 1)
 		//et plusieurs instance du noeud S10.G01.01 (InsMax = 0)
-		DSNCardinality Cardinality { get; }
+		DsnCardinality Cardinality { get; }
 	
 		//libellé du noeud S10.G01.00 est "Emetteur"
 		string Label { get; }
 
-        /// <summary>
-        /// Gets the parent node.
-        /// Null when this is the root node.
-        /// </summary>
-		IDSNNode Parent { get; }
+		/// <summary>
+		/// Gets the parent node.
+		/// Null when this is the root node.
+		/// </summary>
+		IDsnNode Parent { get; }
 
         /// <summary>
         /// Gets the immutable list of children.
         /// Must never be null, but may be empty.
         /// </summary>
-		IReadOnlyList<IDSNNode> Children { get; set; }
+		IReadOnlyList<IDsnNode> Children { get; set; }
 
         /// <summary>
         /// Must check whether the <see cref="Cardinality"/> is correct regarding the 

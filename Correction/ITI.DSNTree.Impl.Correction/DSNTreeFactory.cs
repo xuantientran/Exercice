@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ITI.DSNTree
 {
-	public class DSNTreeFactory
+	public class DsnTreeFactory
 	{
 		public static IDsnTree LoadTree( string path )
 		{
