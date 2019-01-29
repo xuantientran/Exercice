@@ -24,6 +24,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example1", "Example1", "{0B152EC3-1A35-45B8-BDF1-226A106A39A1}"
 	ProjectSection(SolutionItems) = preProject
 		..\Data\Example1\data1.txt = ..\Data\Example1\data1.txt
+		..\Data\Example1\data2.txt = ..\Data\Example1\data2.txt
 		..\Data\Example1\dsnTree3.txt = ..\Data\Example1\dsnTree3.txt
 		..\Data\Example1\result.txt = ..\Data\Example1\result.txt
 	EndProjectSection

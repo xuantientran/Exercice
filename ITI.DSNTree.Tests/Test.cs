@@ -19,6 +19,7 @@ namespace ITI.DSNTree.Tests
 		static string result = Path.Combine(GetDataDirectory(), "Example0", "result.txt");
 		static string result2 = Path.Combine(GetDataDirectory(), "Example1", "result.txt");
 
+		//test the parsing of one line
 		[Test]
 		public void T00_loading_simple_test_tree()
 		{
