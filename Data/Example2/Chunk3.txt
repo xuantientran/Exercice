@@ -1,3 +1,0 @@
-S10.G01.00 - Emetteur (1,1)
-	S10.G01.01 - Contacts Emetteur (1,*)
-	S10.G01.05 - Compte rendu d'exploitation (0,1)
